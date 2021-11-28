@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Zoo</string>
+    <string name="connect_error">Не удалось подключиться к серверу</string>
+    <string name="authorization">Авторизация</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="enter">Войти</string>
+    <string name="ok">Ок</string>
+    <string name="choice_project">Выберите проект</string>
+    <string name="main">Главная</string>
+    <string name="search">Поиск</string>
+    <string name="error_credentials">Неверный логин/пароль</string>
+    <string name="button_ok_calendar">ПРИМЕНИТЬ</string>
+    <string name="exit">Выход</string>
+    <string name="settings">Настройки</string>
+</resources>

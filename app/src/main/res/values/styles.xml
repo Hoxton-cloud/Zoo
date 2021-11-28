@@ -1,0 +1,35 @@
+<resources>
+    <style name="lightGrey15Medium">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorLightGrey</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+    <style name="lightGrey16Medium">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorLightGrey</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="black16Medium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+    <style name="black16Regular">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="blue15Regular">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="white20Medium">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+</resources>
