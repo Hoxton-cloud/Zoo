@@ -14,7 +14,7 @@ class LoginJSONConverter {
         json: JSONObject,context: Context
     ){
         try {
-            Preferences.setUserId(context,json.getString("userID"))
+            Preferences.setUserId(context,json.getString("username"))
             Preferences.setUserToken(context,json.getString("token"))
         }catch (e:Exception){
             e.printStackTrace()

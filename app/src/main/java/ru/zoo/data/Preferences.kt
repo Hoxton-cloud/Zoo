@@ -93,6 +93,11 @@ object Preferences {
         )
     }
 
+    fun setUserId(context: Context, string: String) {
+        initialize(context)
+        putString(USER_ID, string)
+    }
+
     fun setUserToken(context: Context, string: String) {
         initialize(context)
         putString(USER_TOKEN, string)
