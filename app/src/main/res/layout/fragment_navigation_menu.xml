@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundAuthorization"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="ru.zoo.presentation.menu.MenuActivity">
+
+    <ImageButton
+        android:id="@+id/frame_button_users"
+        android:layout_width="260dp"
+        android:layout_height="70dp"
+        android:onClick="onClick"
+        android:background="@drawable/circle_shadow_cards_navigation"
+        android:paddingStart="30dp"
+        android:text="@string/enter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"  />
+
+    <ImageButton
+        android:id="@+id/frame_button_employees"
+        android:layout_width="260dp"
+        android:layout_height="70dp"
+        android:onClick="onClick"
+        android:background="@drawable/circle_shadow_cards_navigation"
+        android:paddingStart="30dp"
+        android:text="@string/enter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame_button_users"  />
+
+    <ImageButton
+        android:id="@+id/frame_button_roles"
+        android:layout_width="260dp"
+        android:layout_height="70dp"
+        android:onClick="onClick"
+        android:background="@drawable/circle_shadow_cards_navigation"
+        android:paddingStart="30dp"
+        android:text="@string/enter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame_button_employees"  />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

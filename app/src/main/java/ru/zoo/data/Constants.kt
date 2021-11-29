@@ -17,4 +17,10 @@ object Constants {
     val inputDateFormat = SimpleDateFormat("yyyy-MM-dd")
 
     const val REQUEST_CODE = 0
+    const val REQUEST_CODE_USERS_LIST = 1001
+    const val REQUEST_CODE_USERS_DIRECTORY = 1002
+
+
+    const val REQUEST_CODE_USERS_CREATE = 2001
+    const val REQUEST_CODE_USERS_EDIT = 2002
 }

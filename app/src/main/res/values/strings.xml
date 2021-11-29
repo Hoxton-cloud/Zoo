@@ -13,4 +13,8 @@
     <string name="button_ok_calendar">ПРИМЕНИТЬ</string>
     <string name="exit">Выход</string>
     <string name="settings">Настройки</string>
+    <string name="lorem">Lorem</string>
+    <string name="users">Пользователи</string>
+    <string name="new_user">Новый пользователь</string>
+    <string name="edit_user">Редактирование пользователя</string>
 </resources>

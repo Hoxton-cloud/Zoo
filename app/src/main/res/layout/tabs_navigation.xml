@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.tabs.TabLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tab_navigation"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/actionBarSize"
+    android:layout_gravity="bottom"
+    android:background="@drawable/circle_top"
+    android:foregroundGravity="bottom"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintEnd_toStartOf="parent"
+    app:tabIndicatorColor="@color/colorPrimaryDark"
+    app:tabGravity="fill"
+    app:tabMode="fixed">
+
+    <com.google.android.material.tabs.TabItem
+        android:id="@+id/button_tab_main"
+        android:layout_width="wrap_content"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_marginTop="1dp"
+        android:adjustViewBounds="false"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout="@layout/icon_navigation_main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.tabs.TabItem
+        android:id="@+id/button_tab_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_gravity="center"
+        android:layout_marginTop="1dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foregroundGravity="center"
+        android:layout="@layout/icon_navigation_profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_tab_notification"
+        app:layout_constraintStart_toEndOf="@+id/button_tab_main" />
+
+
+    <com.google.android.material.tabs.TabItem
+        android:id="@+id/button_tab_notification"
+        android:layout_width="wrap_content"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_gravity="end"
+        android:layout_marginTop="1dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foregroundGravity="right"
+        android:layout="@layout/icon_navigation_settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</com.google.android.material.tabs.TabLayout>

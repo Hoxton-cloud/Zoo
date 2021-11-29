@@ -10,6 +10,12 @@
         <item name="fontFamily">@font/roboto_medium</item>
     </style>
 
+    <style name="darkGrey16Regular">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorDarkGrey</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
     <style name="black16Medium">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/colorBlack</item>
@@ -17,6 +23,16 @@
     </style>
     <style name="black16Regular">
         <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+    <style name="black15Medium">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+    <style name="black15Regular">
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/colorBlack</item>
         <item name="fontFamily">@font/roboto_regular</item>
     </style>
@@ -31,5 +47,15 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="circle_shadow" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:background">@drawable/circle_shadow</item>
+    </style>
+    <style name="circle_shadow_left_status" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:src">@drawable/circle_shadow_left_status</item>
+    </style>
+    <style name="circle_shadow_top_status" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:src">@drawable/circle_shadow_top_status</item>
     </style>
 </resources>
