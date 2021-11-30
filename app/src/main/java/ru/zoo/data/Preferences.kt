@@ -73,7 +73,8 @@ object Preferences {
         initialize(context)
         return getString(
             IP_ADDRESS,
-            "https://sid-t.nipigas.ru/"
+            "http://172.20.10.5:3000"
+//            "http://localhost:3000"
         )
     }
 

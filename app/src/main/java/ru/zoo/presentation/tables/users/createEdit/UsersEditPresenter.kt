@@ -4,6 +4,9 @@ import android.app.Activity
 import android.content.Context
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.activity_users_edit.view.*
+import kotlinx.android.synthetic.main.include_multiline_edit_text.view.*
+import kotlinx.android.synthetic.main.include_text_parameter_without_delete.view.*
+import ru.zoo.R
 import ru.zoo.data.Constants.REQUEST_CODE_USERS_CREATE
 import ru.zoo.data.Constants.REQUEST_CODE_USERS_EDIT
 import ru.zoo.data.models.User
@@ -11,6 +14,7 @@ import ru.zoo.extensions.view.IProgressView
 import ru.zoo.extensions.view.gone
 import ru.zoo.extensions.view.visible
 import ru.zoo.presentation.tables.users.createEdit.UsersEditRepository.Companion.requestCode
+import ru.zoo.presentation.tables.users.createEdit.UsersEditRepository.Companion.userForSend
 
 class UsersEditPresenter (
     val activity: Activity,
@@ -25,12 +29,26 @@ class UsersEditPresenter (
     var containerEmployeeID = layout.container_employeeID
     var containerRole = layout.container_role
 
+    val db = UsersEditDB(context, this, activity)
+
     init {
+        setMode()
+    }
+
+    fun setMode(){
         if (requestCode == REQUEST_CODE_USERS_CREATE){
             createPreset()
         } else if (requestCode == REQUEST_CODE_USERS_EDIT){
-            editPreset()
+            db.getEmployee()
         }
+    }
+
+    fun editUser() {
+        db.editUser()
+    }
+
+    fun addUser() {
+        db.addUser()
     }
 
     override fun showLoading() {
@@ -42,10 +60,31 @@ class UsersEditPresenter (
     }
 
     fun createPreset() {
-
+        containerID.gone()
+        containerUsername.edit_text_title.text = context.getString(R.string.username)
+        containerPassword.edit_text_title.text = context.getString(R.string.password)
+        containerEmployeeID.label.text = context.getString(R.string.employee_id)
+        containerRole.edit_text_title.text = context.getString(R.string.role)
     }
 
     fun editPreset() {
+        containerID.label.text = context.getString(R.string.id)
+        containerID.imageViewArrow.gone()
+        containerID.value.text = userForSend.id.toString()
 
+        containerUsername.edit_text_title.text = context.getString(R.string.username)
+        containerUsername.edit_text.hint = context.getString(R.string.enter_username)
+        containerUsername.edit_text.setText(userForSend.username)
+
+        containerPassword.edit_text_title.text = context.getString(R.string.password)
+        containerPassword.edit_text.hint = context.getString(R.string.enter_password)
+        containerPassword.edit_text.setText(userForSend.password)
+
+        containerEmployeeID.label.text = context.getString(R.string.employee_id)
+        containerEmployeeID.value.text = userForSend.employeeID.toString()
+
+        containerRole.edit_text_title.text = context.getString(R.string.role)
+        containerRole.edit_text.hint = context.getString(R.string.enter_role)
+        containerRole.edit_text.setText(userForSend.role)
     }
 }

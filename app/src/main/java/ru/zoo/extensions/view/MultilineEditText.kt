@@ -30,7 +30,7 @@ class MultilineEditText : androidx.appcompat.widget.AppCompatEditText {
         if (outAttrs.imeOptions and EditorInfo.IME_FLAG_NO_ENTER_ACTION != 0) {
             outAttrs.imeOptions = outAttrs.imeOptions and EditorInfo.IME_FLAG_NO_ENTER_ACTION.inv()
         }
-        return connection
+        return connection!!
     }
 }
 fun editTextTitleIsShow(textView: TextView,valueText:String){

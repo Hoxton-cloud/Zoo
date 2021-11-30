@@ -3,6 +3,7 @@ package ru.zoo.db.queries
 import android.content.Context
 import android.util.Log
 import okhttp3.ResponseBody
+import org.json.JSONArray
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -35,7 +36,7 @@ fun loginToServer(
         ) {
             if (response.isSuccessful) {
                 val remoteResponse = response.body()!!.string()
-                val profileFileUploadResponse = JSONObject(remoteResponse)
+                val profileFileUploadResponse = JSONArray(remoteResponse).getJSONObject(0)
                 LoginJSONConverter().deserialize(profileFileUploadResponse, context)
                 onFinish.invoke(true,false)
             } else {

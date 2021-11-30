@@ -4,7 +4,8 @@ import java.io.File
 import java.text.SimpleDateFormat
 
 object Constants {
-    var url: String? = "localhost:3000"
+    var url: String? = "http://172.20.10.5:3000"
+//    var url: String? = "http://localhost:3000"
     var isOnline = true
     var isOfflineCorrect = false
     var isOnlineCorrect = false
@@ -19,7 +20,8 @@ object Constants {
     const val REQUEST_CODE = 0
     const val REQUEST_CODE_USERS_LIST = 1001
     const val REQUEST_CODE_USERS_DIRECTORY = 1002
-
+    const val REQUEST_CODE_EMPLOYEES_LIST = 1003
+    const val REQUEST_CODE_EMPLOYEES_DIRECTORY = 1004
 
     const val REQUEST_CODE_USERS_CREATE = 2001
     const val REQUEST_CODE_USERS_EDIT = 2002

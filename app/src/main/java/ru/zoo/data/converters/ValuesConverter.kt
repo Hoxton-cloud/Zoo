@@ -1,7 +1,7 @@
 package ru.zoo.data.converters
 
-import ru.adept.data.Constants.inputDateFormat
-import ru.adept.data.Constants.simpleDateFormat
+import ru.zoo.data.Constants.inputDateFormat
+import ru.zoo.data.Constants.simpleDateFormat
 
 fun nullChecker(value: String): String {
     return if (value == "null") {

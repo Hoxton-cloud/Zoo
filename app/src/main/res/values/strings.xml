@@ -4,6 +4,7 @@
     <string name="authorization">Авторизация</string>
     <string name="login">Логин</string>
     <string name="password">Пароль</string>
+    <string name="enter_password">Введите пароль</string>
     <string name="enter">Войти</string>
     <string name="ok">Ок</string>
     <string name="choice_project">Выберите проект</string>
@@ -14,7 +15,15 @@
     <string name="exit">Выход</string>
     <string name="settings">Настройки</string>
     <string name="lorem">Lorem</string>
-    <string name="users">Пользователи</string>
+    <string name="users">Пользователи</string>>
+    <string name="employees">Сотрудники</string>
+    <string name="delete">Удалить</string>
     <string name="new_user">Новый пользователь</string>
     <string name="edit_user">Редактирование пользователя</string>
+    <string name="id">Id</string>
+    <string name="username">Имя пользователя</string>
+    <string name="enter_username">Введите имя пользователя</string>
+    <string name="employee_id">Id пользователя</string>
+    <string name="role">Роль</string>
+    <string name="enter_role">Введите роль</string>
 </resources>

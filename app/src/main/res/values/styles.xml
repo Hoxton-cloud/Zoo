@@ -49,6 +49,12 @@
         <item name="fontFamily">@font/roboto_medium</item>
     </style>
 
+    <style name="red13">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/colorRed</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
     <style name="circle_shadow" parent="@android:style/Theme.Holo.Light.Dialog">
         <item name="android:background">@drawable/circle_shadow</item>
     </style>

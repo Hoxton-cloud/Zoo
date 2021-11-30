@@ -14,11 +14,16 @@ import kotlinx.android.synthetic.main.activity_users_edit.*
 import kotlinx.android.synthetic.main.include_multiline_edit_text.view.*
 import kotlinx.android.synthetic.main.toolbar.*
 import ru.zoo.R
+import ru.zoo.data.Constants.REQUEST_CODE_EMPLOYEES_DIRECTORY
 import ru.zoo.data.Constants.REQUEST_CODE_USERS_EDIT
 import ru.zoo.data.Constants.REQUEST_CODE_USERS_CREATE
+import ru.zoo.data.models.Employee
 import ru.zoo.data.models.User
 import ru.zoo.extensions.view.ISetToolbar
 import ru.zoo.extensions.view.hideSoftKeyboard
+import ru.zoo.presentation.tables.employees.listDirectory.EmployeesActivity
+import ru.zoo.presentation.tables.employees.listDirectory.EmployeesRepository
+import ru.zoo.presentation.tables.users.createEdit.UsersEditRepository.Companion.employee
 import ru.zoo.presentation.tables.users.createEdit.UsersEditRepository.Companion.requestCode
 import ru.zoo.presentation.tables.users.createEdit.UsersEditRepository.Companion.userForSend
 
@@ -91,9 +96,9 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
             }
             R.id.menu_button_ok -> {
                 if(requestCode == REQUEST_CODE_USERS_CREATE){
-
+                    presenter.addUser()
                 }else if (requestCode == REQUEST_CODE_USERS_EDIT) {
-
+                    presenter.editUser()
                 }
             }
         }
@@ -118,14 +123,14 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
 
     fun onClick(view: View) {
         when (view) {
-//            responsible -> {
-//                val arrayList = ArrayList<Partner>()
-//                arrayList.add(createRemark.rep)
-//                PartnersCompaniesDirectoryActivity.startForResult(
-//                    this,
-//                    REQUEST_CODE_IMPLEMENTATION_RESPONSIBLE_SINGLE, arrayList, view
-//                )
-//            }
+            container_employeeID -> {
+                val arrayList = ArrayList<Employee>()
+                arrayList.add(employee)
+                EmployeesActivity.startForResultDirectory(
+                    this,
+                    REQUEST_CODE_EMPLOYEES_DIRECTORY, arrayList
+                )
+            }
 
         }
     }
@@ -133,12 +138,12 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
-//                REQUEST_CODE_IMPLEMENTATION_RESPONSIBLE_SINGLE -> {
-//                    if (PartnersCompaniesDirectoryActivity.checkedPartners.isNotEmpty()) {
-//                        createRemark.rep = PartnersCompaniesDirectoryActivity.checkedPartners[0]
-//                        presenter.preset()
-//                    }
-//                }
+                REQUEST_CODE_EMPLOYEES_DIRECTORY -> {
+                    if (EmployeesRepository.checkedEmployee.isNotEmpty()) {
+                        userForSend.employeeID = EmployeesRepository.checkedEmployee[0].id
+                        presenter.setMode()
+                    }
+                }
             }
         }
     }

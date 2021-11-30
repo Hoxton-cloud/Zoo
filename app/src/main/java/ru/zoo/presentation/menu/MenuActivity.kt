@@ -13,11 +13,13 @@ import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.toolbar.*
 import ru.zoo.R
+import ru.zoo.data.Constants.REQUEST_CODE_USERS_LIST
 import ru.zoo.extensions.view.ISetToolbar
 import ru.zoo.extensions.view.hideSoftKeyboard
 import ru.zoo.extensions.view.visible
 import ru.zoo.presentation.authorization.AuthorizationActivity
 import ru.zoo.presentation.menu.MenuRepository.Companion.activeTab
+import ru.zoo.presentation.tables.users.listDirectory.UsersActivity
 
 class MenuActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener, ISetToolbar {
     lateinit var presenter: MenuPresenter
@@ -105,7 +107,7 @@ class MenuActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener, ISetT
 
     fun onClick(view: View) {
         when (view.id) {
-            R.id.frame_button_users -> UsersActivity.start(this)
+            R.id.frame_button_users -> UsersActivity.startForResultList(this, REQUEST_CODE_USERS_LIST)
 //            R.id.frame_button_employees -> UsersActivity.start(this)
 //            R.id.frame_button_roles -> UsersActivity.start(this)
         }

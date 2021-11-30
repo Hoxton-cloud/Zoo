@@ -6,12 +6,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.activity_users.view.*
+import ru.zoo.data.Constants.REQUEST_CODE_USERS_DIRECTORY
+import ru.zoo.data.Constants.REQUEST_CODE_USERS_EDIT
+import ru.zoo.data.Constants.REQUEST_CODE_USERS_LIST
 import ru.zoo.data.models.User
 import ru.zoo.extensions.view.IProgressView
 import ru.zoo.extensions.view.gone
 import ru.zoo.extensions.view.visible
+import ru.zoo.presentation.tables.users.createEdit.UsersEditActivity
 import ru.zoo.presentation.tables.users.listDirectory.UsersRepository.Companion.addUser
 import ru.zoo.presentation.tables.users.listDirectory.UsersRepository.Companion.checkedUser
+import ru.zoo.presentation.tables.users.listDirectory.UsersRepository.Companion.requestCode
 import ru.zoo.presentation.tables.users.listDirectory.UsersRepository.Companion.users
 import ru.zoo.presentation.tables.users.listDirectory.view.UsersAdapter
 
@@ -36,14 +41,22 @@ class UsersPresenter (
 
     fun setListView() {
         val onClick: (user: User) -> Unit = { user->
-            if (!checkedUser.any { it.id == user.id }) {
-                checkedUser.clear()
+            if(requestCode == REQUEST_CODE_USERS_LIST){
+                UsersEditActivity.startForResultEdit(
+                    activity,
+                    REQUEST_CODE_USERS_EDIT,
+                    user
+                )
+            }else if (requestCode == REQUEST_CODE_USERS_DIRECTORY) {
+                if (!checkedUser.any { it.id == user.id }) {
+                    checkedUser.clear()
+                }
+                addUser(user)
+                recyclerView!!.adapter!!.notifyDataSetChanged()
+                val intent = Intent()
+                activity.setResult(AppCompatActivity.RESULT_OK, intent)
+                activity.finish()
             }
-            addUser(user)
-            recyclerView!!.adapter!!.notifyDataSetChanged()
-            val intent = Intent()
-            activity.setResult(AppCompatActivity.RESULT_OK, intent)
-            activity.finish()
         }
         recyclerView.adapter =
             UsersAdapter(users, checkedUser, context, onClick)

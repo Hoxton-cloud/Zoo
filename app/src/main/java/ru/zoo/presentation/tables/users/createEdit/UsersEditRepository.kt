@@ -1,5 +1,6 @@
 package ru.zoo.presentation.tables.users.createEdit
 
+import ru.zoo.data.models.Employee
 import ru.zoo.data.models.User
 
 class UsersEditRepository {
@@ -7,5 +8,6 @@ class UsersEditRepository {
         var userForSend = User()
         var requestCode = 0
         var employeeID : Int? = null
+        var employee = Employee()
     }
 }

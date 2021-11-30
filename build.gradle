@@ -5,7 +5,7 @@ buildscript {
         jcenter()
         maven { url "https://www.jitpack.io" }
         maven { url 'https://maven.fabric.io/public' }
-        maven {url "https://dl.bintray.com/riontech/maven"}
+//        maven {url "https://dl.bintray.com/riontech/maven"}
         google()
     }
     dependencies {
