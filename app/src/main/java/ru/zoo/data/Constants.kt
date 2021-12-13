@@ -4,7 +4,7 @@ import java.io.File
 import java.text.SimpleDateFormat
 
 object Constants {
-    var url: String? = "http://172.20.10.5:3000"
+    var url: String? = "http://172.20.10.5:3306"
 //    var url: String? = "http://localhost:3000"
     var isOnline = true
     var isOfflineCorrect = false

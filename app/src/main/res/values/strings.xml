@@ -26,4 +26,28 @@
     <string name="employee_id">Id пользователя</string>
     <string name="role">Роль</string>
     <string name="enter_role">Введите роль</string>
+    <string name="section_is_under_construction">Раздел находится в разработке</string>
+
+    <string name="users_table">Таблица пользователей</string>
+    <string name="employees_table">Таблица сотрудников</string>
+    <string name="positions_table">Таблица должностей</string>
+    <string name="feedings_table">Таблица кормлений</string>
+    <string name="rations_table">Таблица рационов</string>
+    <string name="feeds_table">Таблица кормов</string>
+    <string name="feed_types_table">Таблица типов кормов</string>
+    <string name="feed_supplies_table">Таблица поставок кормов</string>
+    <string name="suppliers_table">Таблица поставщиков</string>
+    <string name="animals_table">Таблица животных</string>
+    <string name="checkins_table">Таблица распределений</string>
+    <string name="aviaries_table">Таблица вольеров</string>
+    <string name="aviary_types_table">Таблица типов вольеров</string>
+    <string name="offsprings_table">Таблица потомств</string>
+    <string name="animal_exchanges_table">Таблица обменов животных</string>
+    <string name="medical_examinations_table">Таблица медицинских осмотров</string>
+    <string name="diagnosis_table">Таблица диагнозов</string>
+    <string name="species_table">Таблица видов</string>
+    <string name="animal_types_table">Таблица типов животных</string>
+    <string name="climate_zones_table">Таблица климатических зон</string>
+
+
 </resources>

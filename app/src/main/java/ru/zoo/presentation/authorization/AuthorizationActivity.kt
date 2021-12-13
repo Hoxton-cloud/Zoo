@@ -53,11 +53,6 @@ class AuthorizationActivity : AppCompatActivity() {
         })
         presenter.hideLoading()
 
-        if (url == "") {
-            url = "https://sid-t.nipigas.ru/"
-            Preferences.setUserIpAddress(this,url!!)
-        }
-
         edit_text_login.setText(login)
         edit_text_password.setText(password)
         requestPermissions()

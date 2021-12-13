@@ -107,7 +107,7 @@ class MenuActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener, ISetT
 
     fun onClick(view: View) {
         when (view.id) {
-            R.id.frame_button_users -> UsersActivity.startForResultList(this, REQUEST_CODE_USERS_LIST)
+            R.id.button_users -> UsersActivity.startForResultList(this, REQUEST_CODE_USERS_LIST)
 //            R.id.frame_button_employees -> UsersActivity.start(this)
 //            R.id.frame_button_roles -> UsersActivity.start(this)
         }

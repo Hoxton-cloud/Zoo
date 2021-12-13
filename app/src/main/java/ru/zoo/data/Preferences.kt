@@ -73,7 +73,7 @@ object Preferences {
         initialize(context)
         return getString(
             IP_ADDRESS,
-            "http://172.20.10.5:3000"
+            "http://172.20.10.5:3306"
 //            "http://localhost:3000"
         )
     }

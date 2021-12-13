@@ -16,4 +16,5 @@
     <color name="colorLightGrey">#999999</color>
     <color name="colorDarkGrey">#5C5C5C</color>
     <color name="colorRed">#EB5757</color>
+    <color name="colorBackground">#F3F3F4</color>
 </resources>
