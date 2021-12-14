@@ -39,6 +39,10 @@ class UsersPresenter (
         progressView.visible()
     }
 
+    fun getUsers(){
+        db.getUsers()
+    }
+
     fun setListView() {
         val onClick: (user: User) -> Unit = { user->
             if(requestCode == REQUEST_CODE_USERS_LIST){

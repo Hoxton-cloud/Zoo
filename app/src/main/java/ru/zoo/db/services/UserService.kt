@@ -9,31 +9,32 @@ import retrofit2.http.Query
 interface UserService {
     @GET("/mobileGetUsersList")
     fun getUsersList(
-        @Query("token") token: String?, @Query("userID") userID: String?
+        @Query("token") token: String?, @Query("userID") userID: Int?
     ): Call<ResponseBody>
 
     @GET("/mobileGetUserByID")
     fun getUserByID(
-        @Query("token") token: String?, @Query("userID") userID: String?, @Query("soughtUserID") soughtUserID: String?
+        @Query("token") token: String?, @Query("userID") userID: Int?, @Query("soughtUserID") soughtUserID: Int?
     ): Call<ResponseBody>
 
     @POST("/mobileEditUser/add")
     fun addUser(
         @Query("token") token: String?,
-        @Query("userID") userID: String?,
+        @Query("userID") userID: Int?,
         @Query("username") username: String?,
         @Query("password") password: String?,
-        @Query("employeeID") employeeID: String?,
+        @Query("employeeID") employeeID: Int?,
         @Query("role") role: String?
     ): Call<ResponseBody>
 
     @POST("/mobileEditUser/update")
     fun editUser(
         @Query("token") token: String?,
-        @Query("userID") userID: String?,
+        @Query("userID") userID: Int?,
         @Query("username") username: String?,
         @Query("password") password: String?,
-        @Query("employeeID") employeeID: String?,
-        @Query("role") role: String?
+        @Query("employeeID") employeeID: Int?,
+        @Query("role") role: String?,
+        @Query("id") id: Int?
     ): Call<ResponseBody>
 }

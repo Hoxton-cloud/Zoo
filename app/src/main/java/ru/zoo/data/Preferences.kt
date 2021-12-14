@@ -45,6 +45,17 @@ object Preferences {
         return sharedPreferences!!.getBoolean(key, defaultValue!!)
     }
 
+    fun putInt(key: String?, value: Int) {
+        val editor =
+            sharedPreferences!!.edit()
+        editor.putInt(key, value)
+        editor.apply()
+    }
+
+    fun getInt(key: String?, defaultValue: Int): Int {
+        return sharedPreferences!!.getInt(key, defaultValue)
+    }
+
     fun getUserId(context: Context): String? {
         initialize(context)
         return getString(
@@ -73,7 +84,7 @@ object Preferences {
         initialize(context)
         return getString(
             IP_ADDRESS,
-            "http://172.20.10.5:3306"
+            "http://10.0.2.2:3000"
 //            "http://localhost:3000"
         )
     }
@@ -94,9 +105,9 @@ object Preferences {
         )
     }
 
-    fun setUserId(context: Context, string: String) {
+    fun setUserId(context: Context, int: Int) {
         initialize(context)
-        putString(USER_ID, string)
+        putInt(USER_ID, int)
     }
 
     fun setUserToken(context: Context, string: String) {

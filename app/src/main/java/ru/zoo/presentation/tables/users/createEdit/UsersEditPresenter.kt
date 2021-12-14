@@ -13,6 +13,7 @@ import ru.zoo.data.models.User
 import ru.zoo.extensions.view.IProgressView
 import ru.zoo.extensions.view.gone
 import ru.zoo.extensions.view.visible
+import ru.zoo.presentation.tables.users.createEdit.UsersEditRepository.Companion.employee
 import ru.zoo.presentation.tables.users.createEdit.UsersEditRepository.Companion.requestCode
 import ru.zoo.presentation.tables.users.createEdit.UsersEditRepository.Companion.userForSend
 
@@ -28,6 +29,7 @@ class UsersEditPresenter (
     var containerID = layout.container_id
     var containerEmployeeID = layout.container_employeeID
     var containerRole = layout.container_role
+    var containerDelete = layout.frame_button_delete_user
 
     val db = UsersEditDB(context, this, activity)
 
@@ -51,6 +53,10 @@ class UsersEditPresenter (
         db.addUser()
     }
 
+    fun getEmployee() {
+        db.getEmployee()
+    }
+
     override fun showLoading() {
         progressView.visible()
     }
@@ -61,10 +67,19 @@ class UsersEditPresenter (
 
     fun createPreset() {
         containerID.gone()
+        containerDelete.gone()
+
         containerUsername.edit_text_title.text = context.getString(R.string.username)
+        containerUsername.edit_text.hint = context.getString(R.string.enter_username)
+
         containerPassword.edit_text_title.text = context.getString(R.string.password)
+        containerPassword.edit_text.hint = context.getString(R.string.enter_password)
+
         containerEmployeeID.label.text = context.getString(R.string.employee_id)
+        containerEmployeeID.value.text = employee.firstName.toString()
+
         containerRole.edit_text_title.text = context.getString(R.string.role)
+        containerRole.edit_text.hint = context.getString(R.string.enter_role)
     }
 
     fun editPreset() {
@@ -81,7 +96,7 @@ class UsersEditPresenter (
         containerPassword.edit_text.setText(userForSend.password)
 
         containerEmployeeID.label.text = context.getString(R.string.employee_id)
-        containerEmployeeID.value.text = userForSend.employeeID.toString()
+        containerEmployeeID.value.text = employee.firstName.toString()
 
         containerRole.edit_text_title.text = context.getString(R.string.role)
         containerRole.edit_text.hint = context.getString(R.string.enter_role)

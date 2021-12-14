@@ -4,7 +4,7 @@ import java.io.File
 import java.text.SimpleDateFormat
 
 object Constants {
-    var url: String? = "http://172.20.10.5:3306"
+    var url: String? = "http://10.0.2.2:3000"
 //    var url: String? = "http://localhost:3000"
     var isOnline = true
     var isOfflineCorrect = false
@@ -12,6 +12,7 @@ object Constants {
     var isBadOnlineCorrect = false
     var typeConnection = 0
     var country: String? = null
+    var role: String? = ""
 //    var currentUser: Partner? = null
     var lastIndexRecord = 1
     val simpleDateFormat = SimpleDateFormat("dd.MM.yyyy")

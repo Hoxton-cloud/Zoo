@@ -25,7 +25,7 @@ class UsersQueries {
         var users = ArrayList<User>()
         val userService =
             getQueryClient(context).create(UserService::class.java)
-        val userId = Preferences.getString(Preferences.USER_ID, "")
+        val userId = Preferences.getInt(Preferences.USER_ID, 999999)
         val token = Preferences.getString(Preferences.USER_TOKEN, "")
         val call = userService.getUsersList(token, userId)
         call.enqueue(object : Callback<ResponseBody> {
@@ -68,9 +68,9 @@ class UsersQueries {
         var users = ArrayList<User>()
         val userService =
             getQueryClient(context).create(UserService::class.java)
-        val userId = Preferences.getString(Preferences.USER_ID, "")
+        val userId = Preferences.getInt(Preferences.USER_ID, 99999)
         val token = Preferences.getString(Preferences.USER_TOKEN, "")
-        val call = userService.getUserByID(token, userId, soughtUserID.toString())
+        val call = userService.getUserByID(token, userId, soughtUserID)
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(
                 call: Call<ResponseBody>,
@@ -110,9 +110,9 @@ class UsersQueries {
         onStart.invoke()
         val userService =
             getQueryClient(context).create(UserService::class.java)
-        val userId = Preferences.getString(Preferences.USER_ID, "")
+        val userId = Preferences.getInt(Preferences.USER_ID, 999999)
         val token = Preferences.getString(Preferences.USER_TOKEN, "")
-        val call = userService.editUser(token, userId, user.username, user.password, user.employeeID.toString(), user.role)
+        val call = userService.editUser(token, userId, user.username, user.password, user.employeeID, user.role, user.id)
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(
                 call: Call<ResponseBody>,
@@ -149,9 +149,9 @@ class UsersQueries {
         onStart.invoke()
         val userService =
             getQueryClient(context).create(UserService::class.java)
-        val userId = Preferences.getString(Preferences.USER_ID, "")
+        val userId = Preferences.getInt(Preferences.USER_ID, 99999)
         val token = Preferences.getString(Preferences.USER_TOKEN, "")
-        val call = userService.addUser(token, userId, user.username, user.password, user.employeeID.toString(), user.role)
+        val call = userService.addUser(token, userId, user.username, user.password, user.employeeID, user.role)
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(
                 call: Call<ResponseBody>,

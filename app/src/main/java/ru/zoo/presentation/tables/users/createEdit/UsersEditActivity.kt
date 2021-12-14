@@ -55,7 +55,7 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                userForSend.password = container_username.edit_text.text.toString()
+                userForSend.password = container_password.edit_text.text.toString()
             }
 
         })
@@ -67,7 +67,7 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                userForSend.role = container_username.edit_text.text.toString()
+                userForSend.role = container_role.edit_text.text.toString()
             }
 
         })
@@ -141,6 +141,7 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
                 REQUEST_CODE_EMPLOYEES_DIRECTORY -> {
                     if (EmployeesRepository.checkedEmployee.isNotEmpty()) {
                         userForSend.employeeID = EmployeesRepository.checkedEmployee[0].id
+                        presenter.getEmployee()
                         presenter.setMode()
                     }
                 }

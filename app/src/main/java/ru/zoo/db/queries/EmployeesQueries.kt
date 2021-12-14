@@ -25,9 +25,9 @@ class EmployeesQueries {
         var employees = ArrayList<Employee>()
         val employeeService =
             getQueryClient(context).create(EmployeeService::class.java)
-        val employeeId = Preferences.getString(Preferences.USER_ID, "")
+        val userId = Preferences.getInt(Preferences.USER_ID, 999999)
         val token = Preferences.getString(Preferences.USER_TOKEN, "")
-        val call = employeeService.getEmployeesList(token, employeeId)
+        val call = employeeService.getEmployeesList(token, userId.toString())
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(
                 call: Call<ResponseBody>,
@@ -68,9 +68,9 @@ class EmployeesQueries {
         var employees = ArrayList<Employee>()
         val employeeService =
             getQueryClient(context).create(EmployeeService::class.java)
-        val employeeId = Preferences.getString(Preferences.USER_ID, "")
+        val userId = Preferences.getInt(Preferences.USER_ID, 99999999)
         val token = Preferences.getString(Preferences.USER_TOKEN, "")
-        val call = employeeService.getEmployeeByID(token, employeeId, soughtEmployeeID.toString())
+        val call = employeeService.getEmployeeByID(token, userId.toString(), soughtEmployeeID.toString())
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(
                 call: Call<ResponseBody>,
@@ -85,10 +85,12 @@ class EmployeesQueries {
                         onFinish.invoke(employees)
                     } catch (e: JSONException) {
                         e.printStackTrace()
+                        onFinish.invoke(employees)
                     }
 
                 } else {
                     Log.e("error", response.errorBody()!!.string())
+                    onFinish.invoke(employees)
                 }
 
             }
@@ -110,11 +112,11 @@ class EmployeesQueries {
         onStart.invoke()
         val employeeService =
             getQueryClient(context).create(EmployeeService::class.java)
-        val employeeId = Preferences.getString(Preferences.USER_ID, "")
+        val userId = Preferences.getInt(Preferences.USER_ID, 9999999)
         val token = Preferences.getString(Preferences.USER_TOKEN, "")
         val call = employeeService.editEmployee(
             token,
-            employeeId,
+            userId.toString(),
             employee.positionID.toString(),
             employee.firstName,
             employee.lastName,
@@ -157,7 +159,7 @@ class EmployeesQueries {
         onStart.invoke()
         val employeeService =
             getQueryClient(context).create(EmployeeService::class.java)
-        val employeeId = Preferences.getString(Preferences.USER_ID, "")
+        val userId = Preferences.getInt(Preferences.USER_ID, 999999)
         val token = Preferences.getString(Preferences.USER_TOKEN, "")
         val call = employeeService.addEmployee(
             employee.positionID.toString(),

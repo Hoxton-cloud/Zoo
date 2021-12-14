@@ -58,6 +58,13 @@ class UsersActivity : AppCompatActivity(), ISetToolbar {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK){
+            presenter.getUsers()
+        }
+    }
+
     override fun onBackPressed() {
         dropData()
         finish()

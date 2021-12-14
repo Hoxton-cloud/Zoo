@@ -51,22 +51,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/container_employeeID" />
 
-    <Button
-        android:id="@+id/delete_user"
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frame_button_delete_user"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingEnd="14dp"
-        android:paddingStart="0dp"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
-        android:textAlignment="viewEnd"
-        style="@style/red13"
-        android:text="@string/delete"
-        android:onClick="onClick"
-        android:background="@color/colorWhite"
-        app:layout_constraintTop_toBottomOf="@id/container_role"
+        android:background="@drawable/circle_shadow_cards_navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_role">
+
+        <Button
+            android:id="@+id/button_delete_user"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:textAlignment="viewEnd"
+            android:onClick="onClick"
+            android:text="@string/delete"
+            android:textColor="@color/colorRed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ProgressBar
         android:id="@+id/progress_view"

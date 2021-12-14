@@ -23,7 +23,7 @@
     <string name="id">Id</string>
     <string name="username">Имя пользователя</string>
     <string name="enter_username">Введите имя пользователя</string>
-    <string name="employee_id">Id пользователя</string>
+    <string name="employee_id">Id  сотруднника</string>
     <string name="role">Роль</string>
     <string name="enter_role">Введите роль</string>
     <string name="section_is_under_construction">Раздел находится в разработке</string>
