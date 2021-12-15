@@ -57,6 +57,10 @@ class UsersEditPresenter (
         db.getEmployee()
     }
 
+    fun deleteUser() {
+        db.deleteUser()
+    }
+
     override fun showLoading() {
         progressView.visible()
     }

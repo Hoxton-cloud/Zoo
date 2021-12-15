@@ -7,9 +7,9 @@ import retrofit2.http.*
 interface DeleteService {
     @DELETE("/deleteAll")
     fun deleteAll(
-    @Query("token") token: String?, @Query("userID") userID: String?, @Query("table") table: String): Call<ResponseBody>
+    @Query("token") token: String?, @Query("userID") userID: Int?, @Query("table") table: String): Call<ResponseBody>
 
     @DELETE("/deleteIdItem")
     fun deleteIdItem(
-        @Query("token") token: String?, @Query("userID") userID: String?, @Query("table") table: String, @Query("id") id: String): Call<ResponseBody>
+        @Query("token") token: String?, @Query("userID") userID: Int?, @Query("table") table: String, @Query("id") id: Int): Call<ResponseBody>
 }

@@ -16,9 +16,11 @@ import ru.zoo.extensions.view.visible
 import ru.zoo.presentation.tables.users.createEdit.UsersEditActivity
 import ru.zoo.presentation.tables.users.listDirectory.UsersRepository.Companion.addUser
 import ru.zoo.presentation.tables.users.listDirectory.UsersRepository.Companion.checkedUser
+import ru.zoo.presentation.tables.users.listDirectory.UsersRepository.Companion.redUsers
 import ru.zoo.presentation.tables.users.listDirectory.UsersRepository.Companion.requestCode
 import ru.zoo.presentation.tables.users.listDirectory.UsersRepository.Companion.users
 import ru.zoo.presentation.tables.users.listDirectory.view.UsersAdapter
+import java.util.*
 
 class UsersPresenter (
     val activity: Activity,
@@ -43,6 +45,16 @@ class UsersPresenter (
         db.getUsers()
     }
 
+    fun search(s: String) {
+        redUsers.clear()
+        users.forEach {
+            if (it.username.toLowerCase(Locale.getDefault()).contains(s)) {
+                redUsers.add(it)
+            }
+        }
+        setListView()
+    }
+
     fun setListView() {
         val onClick: (user: User) -> Unit = { user->
             if(requestCode == REQUEST_CODE_USERS_LIST){
@@ -63,6 +75,6 @@ class UsersPresenter (
             }
         }
         recyclerView.adapter =
-            UsersAdapter(users, checkedUser, context, onClick)
+            UsersAdapter(redUsers, checkedUser, context, onClick)
     }
 }

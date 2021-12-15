@@ -8,6 +8,7 @@ import ru.zoo.data.models.Employee
 import ru.zoo.data.models.User
 import ru.zoo.db.queries.EmployeesQueries
 import ru.zoo.db.queries.UsersQueries
+import ru.zoo.db.queries.deleteItem
 import ru.zoo.presentation.tables.users.createEdit.UsersEditRepository.Companion.employee
 import ru.zoo.presentation.tables.users.createEdit.UsersEditRepository.Companion.userForSend
 import ru.zoo.presentation.tables.users.listDirectory.UsersRepository
@@ -56,5 +57,19 @@ class UsersEditDB (val context: Context, val presenter: UsersEditPresenter, val 
             activity.finish()
         }
         UsersQueries().editUserByID(onStart,onFinish,context, userForSend)
+    }
+
+    fun deleteUser() {
+        val onStart: () -> Unit = {
+            presenter.showLoading()
+            UsersRepository.usersTemp.clear()
+        }
+        val onFinish: () -> Unit = {
+            presenter.hideLoading()
+            val intent = Intent()
+            activity.setResult(Activity.RESULT_OK, intent)
+            activity.finish()
+        }
+        deleteItem(onStart,onFinish,context, "Users", userForSend.id)
     }
 }

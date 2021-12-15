@@ -13,6 +13,7 @@ class UsersRepository {
             }
         }
         var users = ArrayList<User>()
+        var redUsers = ArrayList<User>()
         var checkedUser = ArrayList<User>()
 
         var requestCode = 0

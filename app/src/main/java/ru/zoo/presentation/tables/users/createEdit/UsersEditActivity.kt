@@ -131,7 +131,9 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
                     REQUEST_CODE_EMPLOYEES_DIRECTORY, arrayList
                 )
             }
-
+            button_delete_user -> {
+                presenter.deleteUser()
+            }
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

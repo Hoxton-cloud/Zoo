@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import ru.zoo.data.models.User
 import ru.zoo.db.queries.UsersQueries
+import ru.zoo.presentation.tables.users.listDirectory.UsersRepository.Companion.redUsers
 import ru.zoo.presentation.tables.users.listDirectory.UsersRepository.Companion.users
 
 class UsersDB (val context: Context, val presenter: UsersPresenter, val activity: Activity) {
@@ -18,6 +19,7 @@ class UsersDB (val context: Context, val presenter: UsersPresenter, val activity
         }
         val onFinish: (arrayList: ArrayList<User>) -> Unit = {
             users = it.clone() as ArrayList<User>
+            redUsers = it.clone() as ArrayList<User>
             presenter.setListView()
             presenter.hideLoading()
         }

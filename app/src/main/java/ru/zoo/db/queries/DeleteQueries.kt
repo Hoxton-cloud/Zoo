@@ -23,7 +23,6 @@ fun deleteAll(
     onStart: () -> Unit,
     onFinish: () -> Unit,
     context: Context,
-    objectID: String,
     table: String
 ) {
     val deleteService =
@@ -32,7 +31,7 @@ fun deleteAll(
     val userId = Preferences.getInt(Preferences.USER_ID, 999999)
     val token = Preferences.getString(Preferences.USER_TOKEN, "")
     val call =
-        deleteService.deleteAll(token, userId.toString(), table)
+        deleteService.deleteAll(token, userId, table)
     call.enqueue(object : Callback<ResponseBody> {
         override fun onResponse(
             call: Call<ResponseBody>,
@@ -60,9 +59,8 @@ fun deleteItem(
     onStart: () -> Unit,
     onFinish: () -> Unit,
     context: Context,
-    objectID: String,
     table: String,
-    itemId: String
+    itemId: Int
 ) {
     val deleteService =
         getQueryClient(context).create(DeleteService::class.java)
@@ -70,7 +68,7 @@ fun deleteItem(
     val userId = Preferences.getInt(Preferences.USER_ID, 9999999)
     val token = Preferences.getString(Preferences.USER_TOKEN, "")
     val call =
-        deleteService.deleteIdItem(token, userId.toString(), table,itemId)
+        deleteService.deleteIdItem(token, userId, table,itemId)
     call.enqueue(object : Callback<ResponseBody> {
         override fun onResponse(
             call: Call<ResponseBody>,
