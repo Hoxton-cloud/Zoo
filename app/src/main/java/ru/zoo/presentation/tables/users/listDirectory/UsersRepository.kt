@@ -21,6 +21,7 @@ class UsersRepository {
 
         fun clear() {
             users.clear()
+            redUsers.clear()
             usersTemp.clear()
         }
     }

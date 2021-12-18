@@ -37,14 +37,12 @@ class AuthorizationDB (
             setPreferences(login, password)
             if (isCorrect) {
                 presenter.hideLoading()
-                checkCorrectData()
+                MenuActivity.start(context, 0)
+//                checkCorrectData()
             } else {
                 if(isErrorCredentials){
                     presenter.hideLoading()
                     dialogError(activity,context,context.getString(R.string.error_credentials))
-                }else{
-                    isOnline = false
-                    MenuActivity.start(context, 0)
                 }
             }
         }
@@ -55,11 +53,13 @@ class AuthorizationDB (
 
 
 
-    fun checkCorrectData() {
-        val correct = (Preferences.getString(Preferences.USER_TOKEN, "")!!
-            .isNotEmpty() && Preferences.getString(Preferences.USER_TOKEN, "") != "")
-        MenuActivity.start(context, 0)
-    }
+//    fun checkCorrectData() {
+//        val correct = (Preferences.getString(Preferences.USER_TOKEN, "")!!
+//            .isNotEmpty() && Preferences.getString(Preferences.USER_TOKEN, "") != "")
+//        if (correct){
+//            MenuActivity.start(context, 0)
+//        }
+//    }
 
     fun setPreferences(login: String, password: String) {
         Preferences.setUserLogin(context, login)

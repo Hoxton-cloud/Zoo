@@ -1,6 +1,7 @@
 package ru.zoo.presentation.tables.users.listDirectory
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,18 +10,20 @@ import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.Toolbar
 import kotlinx.android.synthetic.main.activity_users.*
 import kotlinx.android.synthetic.main.toolbar.*
 import kotlinx.android.synthetic.main.toolbar_search.*
 import ru.zoo.R
-import ru.zoo.data.Constants.REQUEST_CODE_USERS_CREATE
-import ru.zoo.data.Constants.REQUEST_CODE_USERS_DIRECTORY
-import ru.zoo.data.Constants.REQUEST_CODE_USERS_LIST
+import ru.zoo.data.Constants.REQUEST_CODE_CREATE
+import ru.zoo.data.Constants.REQUEST_CODE_DIRECTORY
+import ru.zoo.data.Constants.REQUEST_CODE_LIST
 import ru.zoo.data.models.User
 import ru.zoo.extensions.view.ISetToolbar
 import ru.zoo.extensions.view.gone
 import ru.zoo.extensions.view.hideSoftKeyboard
+import ru.zoo.extensions.view.visible
 import ru.zoo.presentation.tables.users.createEdit.UsersEditActivity
 import ru.zoo.presentation.tables.users.listDirectory.UsersRepository.Companion.requestCode
 
@@ -65,10 +68,10 @@ class UsersActivity : AppCompatActivity(), ISetToolbar {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         when (requestCode) {
-            REQUEST_CODE_USERS_LIST -> {
+            REQUEST_CODE_LIST -> {
                 menuInflater.inflate(R.menu.search_menu, menu)
             }
-            REQUEST_CODE_USERS_DIRECTORY -> {
+            REQUEST_CODE_DIRECTORY -> {
                 menuInflater.inflate(R.menu.empty_menu, menu)
             }
         }
@@ -80,6 +83,13 @@ class UsersActivity : AppCompatActivity(), ISetToolbar {
         when (item.itemId) {
             android.R.id.home -> {
                 this.onBackPressed()
+            }
+            R.id.menu_button_search -> {
+                include_toolbar_search.visible()
+                search_text.requestFocus()
+                var imm: InputMethodManager =
+                    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
             }
         }
         return super.onOptionsItemSelected(item)
@@ -106,10 +116,15 @@ class UsersActivity : AppCompatActivity(), ISetToolbar {
             create_user_btn -> {
                 UsersEditActivity.startForResultCreate(
                     this,
-                    REQUEST_CODE_USERS_CREATE
+                    REQUEST_CODE_CREATE
                 )
             }
-
+            close_search -> {
+                include_toolbar_search.gone()
+                search("")
+                search_text.setText("")
+                hideSoftKeyboard(this)
+            }
         }
     }
 

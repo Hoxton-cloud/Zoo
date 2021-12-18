@@ -1,6 +1,5 @@
 package ru.zoo.presentation.menu
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -13,12 +12,13 @@ import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.toolbar.*
 import ru.zoo.R
-import ru.zoo.data.Constants.REQUEST_CODE_USERS_LIST
+import ru.zoo.data.Constants.REQUEST_CODE_LIST
 import ru.zoo.extensions.view.ISetToolbar
 import ru.zoo.extensions.view.hideSoftKeyboard
 import ru.zoo.extensions.view.visible
 import ru.zoo.presentation.authorization.AuthorizationActivity
 import ru.zoo.presentation.menu.MenuRepository.Companion.activeTab
+import ru.zoo.presentation.tables.employees.listDirectory.EmployeesActivity
 import ru.zoo.presentation.tables.users.listDirectory.UsersActivity
 
 class MenuActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener, ISetToolbar {
@@ -82,10 +82,10 @@ class MenuActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener, ISetT
 //        menuInflater.inflate(R.menu.menu_exit, menu)
         when (activeTab) {
             0 -> {
-                menuInflater.inflate(R.menu.empty_menu, menu)
+                menuInflater.inflate(R.menu.menu_exit, menu)
             }
             1 -> {
-                menuInflater.inflate(R.menu.menu_exit, menu)
+                menuInflater.inflate(R.menu.empty_menu, menu)
             }
             2 -> {
                 menuInflater.inflate(R.menu.empty_menu, menu)
@@ -107,7 +107,8 @@ class MenuActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener, ISetT
 
     fun onClick(view: View) {
         when (view.id) {
-            R.id.button_users -> UsersActivity.startForResultList(this, REQUEST_CODE_USERS_LIST)
+            R.id.button_users -> UsersActivity.startForResultList(this, REQUEST_CODE_LIST)
+            R.id.button_employees -> EmployeesActivity.startForResultList(this, REQUEST_CODE_LIST)
 //            R.id.frame_button_employees -> UsersActivity.start(this)
 //            R.id.frame_button_roles -> UsersActivity.start(this)
         }

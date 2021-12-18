@@ -42,7 +42,6 @@ class MenuPresenter (
         fragmentProfile.gone()
         fragmentSettings.gone()
 
-        toolbar.gone()
 
 //        navigationMainButton.setImageResource(R.drawable.tab_main_active)
 //        profileButton.setImageResource(R.drawable.tab_profile_unactive)

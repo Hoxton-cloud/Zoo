@@ -24,7 +24,7 @@ class EmployeesHolder (v: View) : RecyclerView.ViewHolder(v) {
         val participantName = itemView.participant_name
         val participantPhone = itemView.participant_phone
 
-        name.text = employee.firstName
+        name.text = "${employee.firstName} ${employee.lastName}"
         itemView.setOnClickListener { onClick.invoke(employee) }
     }
 }

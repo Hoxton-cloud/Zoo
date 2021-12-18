@@ -1,4 +1,4 @@
-package ru.zoo.presentation.tables.users.createEdit
+package ru.zoo.presentation.tables.employees.createEdit
 
 import android.app.Activity
 import android.content.Intent
@@ -10,32 +10,32 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.Toolbar
-import kotlinx.android.synthetic.main.activity_users_edit.*
+import kotlinx.android.synthetic.main.activity_employees_edit.*
 import kotlinx.android.synthetic.main.include_multiline_edit_text.view.*
 import kotlinx.android.synthetic.main.toolbar.*
 import ru.zoo.R
-import ru.zoo.data.Constants.REQUEST_CODE_EDIT
 import ru.zoo.data.Constants.REQUEST_CODE_CREATE
 import ru.zoo.data.Constants.REQUEST_CODE_DIRECTORY
+import ru.zoo.data.Constants.REQUEST_CODE_EDIT
 import ru.zoo.data.models.Employee
-import ru.zoo.data.models.User
+import ru.zoo.data.models.Position
 import ru.zoo.extensions.view.ISetToolbar
 import ru.zoo.extensions.view.hideSoftKeyboard
+import ru.zoo.presentation.tables.employees.createEdit.EmployeesEditRepository.Companion.employeeForSend
+import ru.zoo.presentation.tables.employees.createEdit.EmployeesEditRepository.Companion.position
+import ru.zoo.presentation.tables.employees.createEdit.EmployeesEditRepository.Companion.requestCode
 import ru.zoo.presentation.tables.employees.listDirectory.EmployeesActivity
 import ru.zoo.presentation.tables.employees.listDirectory.EmployeesRepository
-import ru.zoo.presentation.tables.users.createEdit.UsersEditRepository.Companion.employee
-import ru.zoo.presentation.tables.users.createEdit.UsersEditRepository.Companion.requestCode
-import ru.zoo.presentation.tables.users.createEdit.UsersEditRepository.Companion.userForSend
 
-class UsersEditActivity : AppCompatActivity(), ISetToolbar {
-    lateinit var presenter: UsersEditPresenter
+class EmployeesEditActivity : AppCompatActivity(), ISetToolbar {
+    lateinit var presenter: EmployeesEditPresenter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_users_edit)
-        presenter = UsersEditPresenter(this,this,parent_users_create)
+        setContentView(R.layout.activity_employees_edit)
+        presenter = EmployeesEditPresenter(this,this,parent_employees_create)
         presenter.hideLoading()
         setToolbar()
-        container_username.edit_text.addTextChangedListener(object : TextWatcher {
+        container_firstname.edit_text.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 
@@ -43,12 +43,12 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                userForSend.username = container_username.edit_text.text.toString()
+                employeeForSend.firstName = container_firstname.edit_text.text.toString()
                 invalidateOptionsMenu()
             }
 
         })
-        container_password.edit_text.addTextChangedListener(object : TextWatcher {
+        container_lastname.edit_text.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 
@@ -56,12 +56,12 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                userForSend.password = container_password.edit_text.text.toString()
+                employeeForSend.lastName = container_lastname.edit_text.text.toString()
                 invalidateOptionsMenu()
             }
 
         })
-        container_role.edit_text.addTextChangedListener(object : TextWatcher {
+        container_patronymic.edit_text.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 
@@ -69,7 +69,20 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                userForSend.role = container_role.edit_text.text.toString()
+                employeeForSend.patronymic = container_patronymic.edit_text.text.toString()
+                invalidateOptionsMenu()
+            }
+
+        })
+        container_phoneNumber.edit_text.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                employeeForSend.phoneNumber = container_phoneNumber.edit_text.text.toString()
                 invalidateOptionsMenu()
             }
 
@@ -78,9 +91,9 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
     override fun setToolbar() {
         val toolbar = findViewById<Toolbar>(R.id.include_toolbar)
         if (requestCode == REQUEST_CODE_CREATE){
-            title_toolbar.text = getString(R.string.new_user)
+            title_toolbar.text = getString(R.string.new_employee)
         } else if (requestCode == REQUEST_CODE_EDIT){
-            title_toolbar.text = getString(R.string.edit_user)
+            title_toolbar.text = getString(R.string.edit_employee)
         }
         setSupportActionBar(toolbar)
         supportActionBar!!.title = ""
@@ -103,9 +116,9 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
             }
             R.id.menu_button_ok -> {
                 if(requestCode == REQUEST_CODE_CREATE){
-                    presenter.addUser()
+                    presenter.addEmployee()
                 }else if (requestCode == REQUEST_CODE_EDIT) {
-                    presenter.editUser()
+                    presenter.editEmployee()
                 }
             }
         }
@@ -122,8 +135,8 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
     }
 
     fun backPressed() {
-        userForSend = User()
-        employee = Employee()
+        employeeForSend = Employee()
+        position = Position()
         val intent = Intent()
         setResult(Activity.RESULT_OK,intent)
         finish()
@@ -131,16 +144,16 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
 
     fun onClick(view: View) {
         when (view) {
-            container_employeeID -> {
-                val arrayList = ArrayList<Employee>()
-                arrayList.add(employee)
-                EmployeesActivity.startForResultDirectory(
-                    this,
-                    REQUEST_CODE_DIRECTORY, arrayList
-                )
+            container_positionID -> {
+//                val arrayList = ArrayList<Position>()
+//                arrayList.add(position)
+//                PO.startForResultDirectory(
+//                    this,
+//                    REQUEST_CODE_DIRECTORY, arrayList
+//                )
             }
-            button_delete_user -> {
-                presenter.deleteUser()
+            button_delete_employee -> {
+                presenter.deleteEmployee()
             }
         }
     }
@@ -150,7 +163,7 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
             when (requestCode) {
                 REQUEST_CODE_DIRECTORY -> {
                     if (EmployeesRepository.checkedEmployee.isNotEmpty()) {
-                        userForSend.employeeID = EmployeesRepository.checkedEmployee[0].id
+                        employeeForSend.positionID = EmployeesRepository.checkedEmployee[0].id
                         presenter.getEmployee()
                         presenter.setMode()
                     }
@@ -163,21 +176,21 @@ class UsersEditActivity : AppCompatActivity(), ISetToolbar {
             activity: Activity,
             requestCode: Int
         ) {
-            UsersEditRepository.requestCode = requestCode
+            EmployeesEditRepository.requestCode = requestCode
             activity.startActivityForResult(
-                Intent(activity, UsersEditActivity::class.java), requestCode
+                Intent(activity, EmployeesEditActivity::class.java), requestCode
             )
         }
 
         fun startForResultEdit(
             activity: Activity,
             requestCode: Int,
-            userForEdit: User
+            employeeForEdit: Employee
         ) {
-            userForSend = userForEdit
-            UsersEditRepository.requestCode = requestCode
+            employeeForSend = employeeForEdit
+            EmployeesEditRepository.requestCode = requestCode
             activity.startActivityForResult(
-                Intent(activity, UsersEditActivity::class.java), requestCode
+                Intent(activity, EmployeesEditActivity::class.java), requestCode
             )
         }
     }

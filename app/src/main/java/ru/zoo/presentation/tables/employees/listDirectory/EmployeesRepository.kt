@@ -13,6 +13,7 @@ class EmployeesRepository {
             }
         }
         var employees = ArrayList<Employee>()
+        var redEmployees = ArrayList<Employee>()
         var checkedEmployee = ArrayList<Employee>()
 
         var requestCode = 0
@@ -20,6 +21,7 @@ class EmployeesRepository {
 
         fun clear() {
             employees.clear()
+            redEmployees.clear()
             employeesTemp.clear()
         }
     }

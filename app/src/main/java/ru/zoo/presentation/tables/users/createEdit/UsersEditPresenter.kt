@@ -3,13 +3,13 @@ package ru.zoo.presentation.tables.users.createEdit
 import android.app.Activity
 import android.content.Context
 import androidx.constraintlayout.widget.ConstraintLayout
+import kotlinx.android.synthetic.main.activity_users_edit.*
 import kotlinx.android.synthetic.main.activity_users_edit.view.*
 import kotlinx.android.synthetic.main.include_multiline_edit_text.view.*
 import kotlinx.android.synthetic.main.include_text_parameter_without_delete.view.*
 import ru.zoo.R
-import ru.zoo.data.Constants.REQUEST_CODE_USERS_CREATE
-import ru.zoo.data.Constants.REQUEST_CODE_USERS_EDIT
-import ru.zoo.data.models.User
+import ru.zoo.data.Constants.REQUEST_CODE_CREATE
+import ru.zoo.data.Constants.REQUEST_CODE_EDIT
 import ru.zoo.extensions.view.IProgressView
 import ru.zoo.extensions.view.gone
 import ru.zoo.extensions.view.visible
@@ -38,9 +38,9 @@ class UsersEditPresenter (
     }
 
     fun setMode(){
-        if (requestCode == REQUEST_CODE_USERS_CREATE){
+        if (requestCode == REQUEST_CODE_CREATE){
             createPreset()
-        } else if (requestCode == REQUEST_CODE_USERS_EDIT){
+        } else if (requestCode == REQUEST_CODE_EDIT){
             db.getEmployee()
         }
     }
@@ -79,8 +79,14 @@ class UsersEditPresenter (
         containerPassword.edit_text_title.text = context.getString(R.string.password)
         containerPassword.edit_text.hint = context.getString(R.string.enter_password)
 
-        containerEmployeeID.label.text = context.getString(R.string.employee_id)
-        containerEmployeeID.value.text = employee.firstName.toString()
+        containerEmployeeID.label.text = context.getString(R.string.assigned_employee)
+        containerEmployeeID.value.visible()
+        if (employee.lastName.isEmpty()){
+            containerEmployeeID.value.gone()
+        } else {
+            containerEmployeeID.value.visible()
+            containerEmployeeID.value.text = employee.lastName.toString()
+        }
 
         containerRole.edit_text_title.text = context.getString(R.string.role)
         containerRole.edit_text.hint = context.getString(R.string.enter_role)
@@ -99,11 +105,24 @@ class UsersEditPresenter (
         containerPassword.edit_text.hint = context.getString(R.string.enter_password)
         containerPassword.edit_text.setText(userForSend.password)
 
-        containerEmployeeID.label.text = context.getString(R.string.employee_id)
-        containerEmployeeID.value.text = employee.firstName.toString()
+        containerEmployeeID.label.text = context.getString(R.string.assigned_employee)
+        containerEmployeeID.value.visible()
+        if (employee.lastName.isEmpty()){
+            containerEmployeeID.value.gone()
+        } else {
+            containerEmployeeID.value.visible()
+            containerEmployeeID.value.text = employee.lastName.toString()
+        }
 
         containerRole.edit_text_title.text = context.getString(R.string.role)
         containerRole.edit_text.hint = context.getString(R.string.enter_role)
         containerRole.edit_text.setText(userForSend.role)
+    }
+
+    fun readyToSend(): Boolean {
+        return containerUsername.edit_text.text.isNotEmpty() &&
+                containerPassword.edit_text.text.isNotEmpty() &&
+                containerRole.edit_text.text.isNotEmpty() &&
+                containerEmployeeID.value.text.isNotEmpty()
     }
 }

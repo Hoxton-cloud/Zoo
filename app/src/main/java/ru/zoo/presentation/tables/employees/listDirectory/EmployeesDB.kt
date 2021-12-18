@@ -5,6 +5,7 @@ import android.content.Context
 import ru.zoo.data.models.Employee
 import ru.zoo.db.queries.EmployeesQueries
 import ru.zoo.presentation.tables.employees.listDirectory.EmployeesRepository.Companion.employees
+import ru.zoo.presentation.tables.employees.listDirectory.EmployeesRepository.Companion.redEmployees
 
 class EmployeesDB (val context: Context, val presenter: EmployeesPresenter, val activity: Activity) {
     init {
@@ -18,6 +19,7 @@ class EmployeesDB (val context: Context, val presenter: EmployeesPresenter, val 
         }
         val onFinish: (arrayList: ArrayList<Employee>) -> Unit = {
             employees = it.clone() as ArrayList<Employee>
+            redEmployees = it.clone() as ArrayList<Employee>
             presenter.setListView()
             presenter.hideLoading()
         }

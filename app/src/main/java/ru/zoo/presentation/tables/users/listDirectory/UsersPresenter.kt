@@ -6,9 +6,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.activity_users.view.*
-import ru.zoo.data.Constants.REQUEST_CODE_USERS_DIRECTORY
-import ru.zoo.data.Constants.REQUEST_CODE_USERS_EDIT
-import ru.zoo.data.Constants.REQUEST_CODE_USERS_LIST
+import ru.zoo.data.Constants.REQUEST_CODE_DIRECTORY
+import ru.zoo.data.Constants.REQUEST_CODE_EDIT
+import ru.zoo.data.Constants.REQUEST_CODE_LIST
 import ru.zoo.data.models.User
 import ru.zoo.extensions.view.IProgressView
 import ru.zoo.extensions.view.gone
@@ -57,13 +57,13 @@ class UsersPresenter (
 
     fun setListView() {
         val onClick: (user: User) -> Unit = { user->
-            if(requestCode == REQUEST_CODE_USERS_LIST){
+            if(requestCode == REQUEST_CODE_LIST){
                 UsersEditActivity.startForResultEdit(
                     activity,
-                    REQUEST_CODE_USERS_EDIT,
+                    REQUEST_CODE_EDIT,
                     user
                 )
-            }else if (requestCode == REQUEST_CODE_USERS_DIRECTORY) {
+            }else if (requestCode == REQUEST_CODE_DIRECTORY) {
                 if (!checkedUser.any { it.id == user.id }) {
                     checkedUser.clear()
                 }

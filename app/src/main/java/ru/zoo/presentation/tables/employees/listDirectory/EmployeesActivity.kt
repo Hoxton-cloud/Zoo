@@ -1,20 +1,30 @@
 package ru.zoo.presentation.tables.employees.listDirectory
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.Toolbar
 import kotlinx.android.synthetic.main.activity_employees.*
 import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.toolbar_search.*
 import ru.zoo.R
-import ru.zoo.data.Constants.REQUEST_CODE_EMPLOYEES_DIRECTORY
-import ru.zoo.data.Constants.REQUEST_CODE_EMPLOYEES_LIST
+import ru.zoo.data.Constants.REQUEST_CODE_CREATE
+import ru.zoo.data.Constants.REQUEST_CODE_DIRECTORY
+import ru.zoo.data.Constants.REQUEST_CODE_LIST
 import ru.zoo.data.models.Employee
 import ru.zoo.extensions.view.ISetToolbar
+import ru.zoo.extensions.view.gone
+import ru.zoo.extensions.view.hideSoftKeyboard
+import ru.zoo.extensions.view.visible
+import ru.zoo.presentation.tables.employees.createEdit.EmployeesEditActivity
 import ru.zoo.presentation.tables.employees.listDirectory.EmployeesRepository.Companion.requestCode
 
 class EmployeesActivity : AppCompatActivity(), ISetToolbar {
@@ -27,19 +37,41 @@ class EmployeesActivity : AppCompatActivity(), ISetToolbar {
     }
 
     override fun setToolbar() {
+        val toolbarSearch = findViewById<Toolbar>(R.id.include_toolbar_search)
+        setSupportActionBar(toolbarSearch)
+        supportActionBar!!.title = ""
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        toolbarSearch.gone()
         val toolbar = findViewById<Toolbar>(R.id.include_toolbar)
         title_toolbar.text = getString(R.string.employees)
         setSupportActionBar(toolbar)
         supportActionBar!!.title = ""
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        search_text.background.clearColorFilter()
+        search_text.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                search(search_text.text.toString().toLowerCase())
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+    }
+
+    fun search(s: String) {
+        presenter.search(s)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         when (requestCode) {
-            REQUEST_CODE_EMPLOYEES_LIST -> {
+            REQUEST_CODE_LIST -> {
                 menuInflater.inflate(R.menu.search_menu, menu)
             }
-            REQUEST_CODE_EMPLOYEES_DIRECTORY -> {
+            REQUEST_CODE_DIRECTORY -> {
                 menuInflater.inflate(R.menu.empty_menu, menu)
             }
         }
@@ -51,6 +83,13 @@ class EmployeesActivity : AppCompatActivity(), ISetToolbar {
         when (item.itemId) {
             android.R.id.home -> {
                 this.onBackPressed()
+            }
+            R.id.menu_button_search -> {
+                include_toolbar_search.visible()
+                search_text.requestFocus()
+                var imm: InputMethodManager =
+                    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
             }
         }
         return super.onOptionsItemSelected(item)
@@ -68,12 +107,17 @@ class EmployeesActivity : AppCompatActivity(), ISetToolbar {
     fun onClick(view: View) {
         when (view) {
             create_employee_btn -> {
-//                UsersEditActivity.startForResultCreate(
-//                    this,
-//                    REQUEST_CODE_USERS_CREATE
-//                )
+                EmployeesEditActivity.startForResultCreate(
+                    this,
+                    REQUEST_CODE_CREATE
+                )
             }
-
+            close_search -> {
+                include_toolbar_search.gone()
+                search("")
+                search_text.setText("")
+                hideSoftKeyboard(this)
+            }
         }
     }
 

@@ -5,6 +5,7 @@ import com.google.gson.*
 import org.json.JSONObject
 import ru.zoo.data.Constants.role
 import ru.zoo.data.Preferences
+import ru.zoo.data.models.User
 import java.lang.Exception
 
 

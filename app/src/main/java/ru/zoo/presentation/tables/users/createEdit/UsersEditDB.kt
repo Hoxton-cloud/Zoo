@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import ru.zoo.data.Constants
 import ru.zoo.data.models.Employee
-import ru.zoo.data.models.User
 import ru.zoo.db.queries.EmployeesQueries
 import ru.zoo.db.queries.UsersQueries
 import ru.zoo.db.queries.deleteItem
@@ -21,9 +20,9 @@ class UsersEditDB (val context: Context, val presenter: UsersEditPresenter, val 
         }
         val onFinish: (arrayList: ArrayList<Employee>) -> Unit = {
             employee = it[0]
-            if (UsersEditRepository.requestCode == Constants.REQUEST_CODE_USERS_CREATE){
+            if (UsersEditRepository.requestCode == Constants.REQUEST_CODE_CREATE){
                 presenter.createPreset()
-            } else if (UsersEditRepository.requestCode == Constants.REQUEST_CODE_USERS_EDIT){
+            } else if (UsersEditRepository.requestCode == Constants.REQUEST_CODE_EDIT){
                 presenter.editPreset()
             }
             presenter.hideLoading()

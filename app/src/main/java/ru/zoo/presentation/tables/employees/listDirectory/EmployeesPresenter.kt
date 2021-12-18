@@ -6,17 +6,21 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.activity_employees.view.*
-import ru.zoo.data.Constants.REQUEST_CODE_EMPLOYEES_DIRECTORY
-import ru.zoo.data.Constants.REQUEST_CODE_EMPLOYEES_LIST
+import ru.zoo.data.Constants.REQUEST_CODE_DIRECTORY
+import ru.zoo.data.Constants.REQUEST_CODE_EDIT
+import ru.zoo.data.Constants.REQUEST_CODE_LIST
 import ru.zoo.data.models.Employee
 import ru.zoo.extensions.view.IProgressView
 import ru.zoo.extensions.view.gone
 import ru.zoo.extensions.view.visible
+import ru.zoo.presentation.tables.employees.createEdit.EmployeesEditActivity
 import ru.zoo.presentation.tables.employees.listDirectory.EmployeesRepository.Companion.addEmployee
 import ru.zoo.presentation.tables.employees.listDirectory.EmployeesRepository.Companion.checkedEmployee
 import ru.zoo.presentation.tables.employees.listDirectory.EmployeesRepository.Companion.employees
+import ru.zoo.presentation.tables.employees.listDirectory.EmployeesRepository.Companion.redEmployees
 import ru.zoo.presentation.tables.employees.listDirectory.EmployeesRepository.Companion.requestCode
 import ru.zoo.presentation.tables.employees.listDirectory.view.EmployeesAdapter
+import java.util.*
 
 class EmployeesPresenter (
     val activity: Activity,
@@ -37,15 +41,29 @@ class EmployeesPresenter (
         progressView.visible()
     }
 
+    fun getEmployees(){
+        db.getEmployees()
+    }
+
+    fun search(s: String) {
+        redEmployees.clear()
+        employees.forEach {
+            if (it.firstName.toLowerCase(Locale.getDefault()).contains(s)) {
+                redEmployees.add(it)
+            }
+        }
+        setListView()
+    }
+
     fun setListView() {
         val onClick: (employee: Employee) -> Unit = { employee->
-            if(requestCode == REQUEST_CODE_EMPLOYEES_LIST){
-//                .startForResultEdit(
-//                    activity,
-//                    REQUEST_CODE_USERS_EDIT,
-//                    user
-//                )
-            }else if (requestCode == REQUEST_CODE_EMPLOYEES_DIRECTORY) {
+            if(requestCode == REQUEST_CODE_LIST){
+                EmployeesEditActivity.startForResultEdit(
+                    activity,
+                    REQUEST_CODE_EDIT,
+                    employee
+                )
+            }else if (requestCode == REQUEST_CODE_DIRECTORY) {
                 if (!checkedEmployee.any { it.id == employee.id }) {
                     checkedEmployee.clear()
                 }
@@ -57,6 +75,6 @@ class EmployeesPresenter (
             }
         }
         recyclerView.adapter =
-            EmployeesAdapter(employees, checkedEmployee, context, onClick)
+            EmployeesAdapter(redEmployees, checkedEmployee, context, onClick)
     }
 }

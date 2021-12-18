@@ -36,9 +36,18 @@ fun loginToServer(
         ) {
             if (response.isSuccessful) {
                 val remoteResponse = response.body()!!.string()
-                val profileFileUploadResponse = JSONArray(remoteResponse).getJSONObject(0)
-                LoginJSONConverter().deserialize(profileFileUploadResponse, context)
-                onFinish.invoke(true,false)
+                try {
+                    if (remoteResponse.isEmpty() || remoteResponse == "[]"){
+                        onFinish.invoke(false,true)
+                    } else{
+                        val profileFileUploadResponse = JSONArray(remoteResponse).getJSONObject(0)
+                        LoginJSONConverter().deserialize(profileFileUploadResponse, context)
+                        onFinish.invoke(true,false)
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    onFinish.invoke(false,true)
+                }
             } else {
                 val remoteResponse = response.errorBody()!!.string()
                 Log.e("s", remoteResponse)

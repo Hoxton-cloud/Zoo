@@ -37,6 +37,7 @@
         android:layout_marginEnd="16dp"
         android:paddingBottom="12dp"
         android:ellipsize="end"
+        android:visibility="gone"
         android:maxLines="2"
         android:text="value"
         app:layout_constraintEnd_toEndOf="parent"

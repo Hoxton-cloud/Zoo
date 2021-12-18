@@ -18,15 +18,32 @@
     <string name="users">Пользователи</string>>
     <string name="employees">Сотрудники</string>
     <string name="delete">Удалить</string>
+
+
     <string name="new_user">Новый пользователь</string>
     <string name="edit_user">Редактирование пользователя</string>
+    <string name="new_employee">Новый сотрудник</string>
+    <string name="edit_employee">Редактирование сотрудника</string>
+
+
+
     <string name="id">Id</string>
     <string name="username">Имя пользователя</string>
     <string name="enter_username">Введите имя пользователя</string>
-    <string name="employee_id">Id  сотруднника</string>
+    <string name="assigned_employee">Закрепленный сотруднник</string>
     <string name="role">Роль</string>
     <string name="enter_role">Введите роль</string>
     <string name="section_is_under_construction">Раздел находится в разработке</string>
+
+    <string name="firstname">Имя</string>
+    <string name="enter_firstname">Введите имя</string>
+    <string name="lastname">Фамилия</string>
+    <string name="enter_lastname">Введите фамилию</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="enter_phone_number">Введите номер телефона</string>
+    <string name="patronymic">Отчество</string>
+    <string name="enter_patronymic">Введите отчество</string>
+    <string name="position">Должность</string>
 
     <string name="users_table">Таблица пользователей</string>
     <string name="employees_table">Таблица сотрудников</string>

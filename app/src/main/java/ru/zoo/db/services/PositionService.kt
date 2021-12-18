@@ -9,30 +9,28 @@ import retrofit2.http.Query
 interface PositionService {
     @GET("/mobileGetPositionsList")
     fun getPositionsList(
-        @Query("token") token: String?, @Query("userID") userID: String?
+        @Query("token") token: String?, @Query("userID") userID: Int?
     ): Call<ResponseBody>
 
     @GET("/mobileGetPositionByID")
     fun getPositionByID(
-        @Query("token") token: String?, @Query("userID") userID: String?, @Query("positionID") positionID: String?
+        @Query("token") token: String?, @Query("userID") userID: Int?, @Query("positionID") positionID: Int?
     ): Call<ResponseBody>
 
     @POST("/mobileEditPosition/add")
     fun addPosition(
         @Query("token") token: String?,
-        @Query("userID") userID: String?,
-        @Query("date") date: String?,
-        @Query("animalID") animalID: String?,
-        @Query("diagnosisID") diagnosisID: String?
+        @Query("userID") userID: Int?,
+        @Query("title") date: String?,
+        @Query("salary") animalID: String?
     ): Call<ResponseBody>
 
     @POST("/mobileEditPosition/update")
     fun editPosition(
         @Query("token") token: String?,
-        @Query("userID") userID: String?,
-        @Query("date") date: String?,
-        @Query("animalID") animalID: String?,
-        @Query("diagnosisID") diagnosisID: String?,
-        @Query("id") id: String?
+        @Query("userID") userID: Int?,
+        @Query("title") date: String?,
+        @Query("salary") animalID: String?,
+        @Query("id") id: Int?
     ): Call<ResponseBody>
 }
