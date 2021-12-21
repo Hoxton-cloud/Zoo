@@ -21,6 +21,7 @@ import ru.zoo.presentation.menu.MenuRepository.Companion.activeTab
 import ru.zoo.presentation.tables.employees.listDirectory.EmployeesActivity
 import ru.zoo.presentation.tables.feedTypes.listDirectory.FeedTypesActivity
 import ru.zoo.presentation.tables.feeds.listDirectory.FeedsActivity
+import ru.zoo.presentation.tables.rations.listDirectory.RationsActivity
 import ru.zoo.presentation.tables.users.listDirectory.UsersActivity
 
 class MenuActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener, ISetToolbar {
@@ -113,7 +114,7 @@ class MenuActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener, ISetT
             R.id.button_employees -> EmployeesActivity.startForResultList(this, REQUEST_CODE_LIST)
             R.id.button_feeds -> FeedsActivity.startForResultList(this, REQUEST_CODE_LIST)
             R.id.button_feed_types -> FeedTypesActivity.startForResultList(this, REQUEST_CODE_LIST)
-            R.id.button_rations -> UsersActivity.startForResultList(this, REQUEST_CODE_LIST)
+            R.id.button_rations -> RationsActivity.startForResultList(this, REQUEST_CODE_LIST)
 //            R.id.frame_button_employees -> UsersActivity.start(this)
 //            R.id.frame_button_roles -> UsersActivity.start(this)
         }

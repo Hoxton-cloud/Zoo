@@ -20,20 +20,53 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Zoo"
+        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
-        <activity android:name=".presentation.tables.feedTypes.listDirectory.FeedTypesActivity"></activity>
-        <activity android:name=".presentation.tables.feedTypes.createEdit.FeedTypesEditActivity" />
-        <activity android:name=".presentation.tables.feeds.listDirectory.FeedsActivity" />
-        <activity android:name=".presentation.tables.feeds.createEdit.FeedsEditActivity" />
-        <activity android:name=".presentation.tables.rations.listDirectory.RationsActivity" />
-        <activity android:name=".presentation.tables.rations.createEdit.RationsEditActivity" />
-        <activity android:name=".presentation.tables.employees.createEdit.RationsEditActivity" />
-        <activity android:name=".presentation.tables.employees.listDirectory.EmployeesActivity" />
-        <activity android:name=".presentation.tables.users.createEdit.UsersEditActivity" />
-        <activity android:name=".presentation.tables.users.listDirectory.UsersActivity" />
-        <activity android:name=".presentation.menu.MenuActivity" />
+        <activity android:name=".presentation.tables.feedTypes.listDirectory.FeedTypesActivity" android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".presentation.tables.feedTypes.createEdit.FeedTypesEditActivity" android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".presentation.tables.feeds.listDirectory.FeedsActivity" android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".presentation.tables.feeds.createEdit.FeedsEditActivity" android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".presentation.tables.rations.listDirectory.RationsActivity" android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".presentation.tables.rations.createEdit.RationsEditActivity" android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".presentation.tables.employees.createEdit.EmployeesEditActivity" android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".presentation.tables.employees.listDirectory.EmployeesActivity" android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".presentation.tables.users.createEdit.UsersEditActivity" android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".presentation.tables.users.listDirectory.UsersActivity" android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".presentation.menu.MenuActivity" android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity"/>
         <activity
             android:name=".presentation.authorization.AuthorizationActivity"
             android:exported="true"

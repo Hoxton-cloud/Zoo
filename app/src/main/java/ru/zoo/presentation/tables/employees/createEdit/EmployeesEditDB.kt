@@ -69,6 +69,6 @@ class EmployeesEditDB (val context: Context, val presenter: EmployeesEditPresent
             activity.setResult(Activity.RESULT_OK, intent)
             activity.finish()
         }
-        deleteItem(onStart,onFinish,context, "Employees", employeeForSend.id)
+        deleteItem(onStart,onFinish,context, "Employee", employeeForSend.id)
     }
 }

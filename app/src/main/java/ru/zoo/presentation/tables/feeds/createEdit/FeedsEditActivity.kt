@@ -21,6 +21,7 @@ import ru.zoo.data.models.FeedType
 import ru.zoo.data.models.Feed
 import ru.zoo.extensions.view.ISetToolbar
 import ru.zoo.extensions.view.hideSoftKeyboard
+import ru.zoo.presentation.tables.feedTypes.listDirectory.FeedTypesActivity
 import ru.zoo.presentation.tables.feedTypes.listDirectory.FeedTypesRepository
 import ru.zoo.presentation.tables.feeds.createEdit.FeedsEditRepository.Companion.feedForSend
 import ru.zoo.presentation.tables.feeds.createEdit.FeedsEditRepository.Companion.feedType
@@ -106,12 +107,12 @@ class FeedsEditActivity : AppCompatActivity(), ISetToolbar {
     fun onClick(view: View) {
         when (view) {
             container_typeID -> {
-//                val arrayList = ArrayList<FeedType>()
-//                arrayList.add(feedType)
-//                PO.startForResultDirectory(
-//                    this,
-//                    REQUEST_CODE_DIRECTORY, arrayList
-//                )
+                val arrayList = ArrayList<FeedType>()
+                arrayList.add(feedType)
+                FeedTypesActivity.startForResultDirectory(
+                    this,
+                    REQUEST_CODE_DIRECTORY, arrayList
+                )
             }
             button_delete_feed -> {
                 presenter.deleteFeed()

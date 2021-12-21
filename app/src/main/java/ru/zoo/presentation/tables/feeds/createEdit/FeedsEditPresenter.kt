@@ -75,6 +75,13 @@ class FeedsEditPresenter (
         containerTitle.edit_text.hint = context.getString(R.string.enter_title)
 
         containerTypeID.label.text = context.getString(R.string.feed_type)
+        containerTypeID.value.visible()
+        if (feedType.title .isEmpty()){
+            containerTypeID.value.gone()
+        } else {
+            containerTypeID.value.visible()
+            containerTypeID.value.text = feedType.title.toString()
+        }
     }
 
     fun editPreset() {

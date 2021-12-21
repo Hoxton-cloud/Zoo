@@ -104,6 +104,13 @@ class FeedsActivity : AppCompatActivity(), ISetToolbar {
         FeedsRepository.clear()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK){
+            presenter.getFeeds()
+        }
+    }
+
     fun onClick(view: View) {
         when (view) {
             create_feed_btn -> {

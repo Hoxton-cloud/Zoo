@@ -104,6 +104,13 @@ class FeedTypesActivity : AppCompatActivity(), ISetToolbar {
         FeedTypesRepository.clear()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK){
+            presenter.getFeedTypes()
+        }
+    }
+
     fun onClick(view: View) {
         when (view) {
             create_feed_type_btn -> {

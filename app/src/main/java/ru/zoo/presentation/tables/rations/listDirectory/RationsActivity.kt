@@ -104,6 +104,13 @@ class RationsActivity : AppCompatActivity(), ISetToolbar {
         RationsRepository.clear()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK){
+            presenter.getRations()
+        }
+    }
+
     fun onClick(view: View) {
         when (view) {
             create_ration_btn -> {

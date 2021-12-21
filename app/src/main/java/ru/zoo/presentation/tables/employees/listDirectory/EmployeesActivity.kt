@@ -104,6 +104,13 @@ class EmployeesActivity : AppCompatActivity(), ISetToolbar {
         EmployeesRepository.clear()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK){
+            presenter.getEmployees()
+        }
+    }
+
     fun onClick(view: View) {
         when (view) {
             create_employee_btn -> {

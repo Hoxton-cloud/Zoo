@@ -70,6 +70,6 @@ class FeedsEditDB (val context: Context, val presenter: FeedsEditPresenter, val 
             activity.setResult(Activity.RESULT_OK, intent)
             activity.finish()
         }
-        deleteItem(onStart,onFinish,context, "Feeds", feedForSend.id)
+        deleteItem(onStart,onFinish,context, "Feed", feedForSend.id)
     }
 }

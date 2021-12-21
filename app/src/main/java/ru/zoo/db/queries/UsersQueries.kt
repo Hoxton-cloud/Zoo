@@ -112,7 +112,14 @@ class UsersQueries {
             getQueryClient(context).create(UserService::class.java)
         val userId = Preferences.getInt(Preferences.USER_ID, 999999)
         val token = Preferences.getString(Preferences.USER_TOKEN, "")
-        val call = userService.editUser(token, userId, user.username, user.password, user.employeeID, user.role, user.id)
+        val call = userService.editUser(
+            token,
+            userId,
+            user.username,
+            user.password,
+            user.employeeID,
+            user.role,
+            user.id)
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(
                 call: Call<ResponseBody>,

@@ -86,8 +86,22 @@ class RationsEditPresenter (
         containerMass.edit_text.hint = context.getString(R.string.enter_mass)
 
         containerFeedID.label.text = context.getString(R.string.feed)
+        containerFeedID.value.visible()
+        if (feed.title.isEmpty()){
+            containerFeedID.value.gone()
+        } else {
+            containerFeedID.value.visible()
+            containerFeedID.value.text = feed.title.toString()
+        }
 
         containerAnimalID.label.text = context.getString(R.string.animal)
+        containerAnimalID.value.visible()
+        if (animal.name.isEmpty()){
+            containerAnimalID.value.gone()
+        } else {
+            containerAnimalID.value.visible()
+            containerAnimalID.value.text = animal.name.toString()
+        }
     }
 
     fun editPreset() {

@@ -54,6 +54,6 @@ class FeedTypesEditDB (val context: Context, val presenter: FeedTypesEditPresent
             activity.setResult(Activity.RESULT_OK, intent)
             activity.finish()
         }
-        deleteItem(onStart,onFinish,context, "FeedTypes", feedTypeForSend.id)
+        deleteItem(onStart,onFinish,context, "FeedType", feedTypeForSend.id)
     }
 }

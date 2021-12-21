@@ -88,6 +88,6 @@ class RationsEditDB (val context: Context, val presenter: RationsEditPresenter, 
             activity.setResult(Activity.RESULT_OK, intent)
             activity.finish()
         }
-        deleteItem(onStart,onFinish,context, "Rations", rationForSend.id)
+        deleteItem(onStart,onFinish,context, "Ration", rationForSend.id)
     }
 }
