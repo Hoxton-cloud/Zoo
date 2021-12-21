@@ -16,14 +16,20 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/app_name_ru"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Zoo"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
-        <activity android:name=".presentation.tables.employees.createEdit.EmployeesEditActivity"></activity>
+        <activity android:name=".presentation.tables.feedTypes.listDirectory.FeedTypesActivity"></activity>
+        <activity android:name=".presentation.tables.feedTypes.createEdit.FeedTypesEditActivity" />
+        <activity android:name=".presentation.tables.feeds.listDirectory.FeedsActivity" />
+        <activity android:name=".presentation.tables.feeds.createEdit.FeedsEditActivity" />
+        <activity android:name=".presentation.tables.rations.listDirectory.RationsActivity" />
+        <activity android:name=".presentation.tables.rations.createEdit.RationsEditActivity" />
+        <activity android:name=".presentation.tables.employees.createEdit.RationsEditActivity" />
         <activity android:name=".presentation.tables.employees.listDirectory.EmployeesActivity" />
         <activity android:name=".presentation.tables.users.createEdit.UsersEditActivity" />
         <activity android:name=".presentation.tables.users.listDirectory.UsersActivity" />

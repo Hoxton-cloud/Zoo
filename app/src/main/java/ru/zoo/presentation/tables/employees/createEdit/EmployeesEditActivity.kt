@@ -24,7 +24,6 @@ import ru.zoo.extensions.view.hideSoftKeyboard
 import ru.zoo.presentation.tables.employees.createEdit.EmployeesEditRepository.Companion.employeeForSend
 import ru.zoo.presentation.tables.employees.createEdit.EmployeesEditRepository.Companion.position
 import ru.zoo.presentation.tables.employees.createEdit.EmployeesEditRepository.Companion.requestCode
-import ru.zoo.presentation.tables.employees.listDirectory.EmployeesActivity
 import ru.zoo.presentation.tables.employees.listDirectory.EmployeesRepository
 
 class EmployeesEditActivity : AppCompatActivity(), ISetToolbar {
@@ -162,11 +161,11 @@ class EmployeesEditActivity : AppCompatActivity(), ISetToolbar {
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
                 REQUEST_CODE_DIRECTORY -> {
-                    if (EmployeesRepository.checkedEmployee.isNotEmpty()) {
-                        employeeForSend.positionID = EmployeesRepository.checkedEmployee[0].id
-                        presenter.getEmployee()
-                        presenter.setMode()
-                    }
+//                    if (PositionsRepository.checkedPosition.isNotEmpty()) {
+//                        employeeForSend.positionID = PositionsRepository.checkedPosition[0].id
+//                        presenter.getPosition()
+//                        presenter.setMode()
+//                    }
                 }
             }
         }

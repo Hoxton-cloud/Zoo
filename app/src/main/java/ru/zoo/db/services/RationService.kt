@@ -9,20 +9,20 @@ import retrofit2.http.Query
 interface RationService {
     @GET("/mobileGetRationsList")
     fun getRationsList(
-        @Query("token") token: String?, @Query("userID") userID: String?
+        @Query("token") token: String?, @Query("userID") userID: Int?
     ): Call<ResponseBody>
 
     @GET("/mobileGetRationByID")
     fun getRationByID(
-        @Query("token") token: String?, @Query("userID") userID: String?, @Query("rationID") rationID: String?
+        @Query("token") token: String?, @Query("userID") userID: Int?, @Query("rationID") rationID: Int?
     ): Call<ResponseBody>
 
     @POST("/mobileEditRation/add")
     fun addRation(
         @Query("token") token: String?,
-        @Query("userID") userID: String?,
-        @Query("feedID") feedID: String?,
-        @Query("animalID") animalID: String?,
+        @Query("userID") userID: Int?,
+        @Query("feedID") feedID: Int?,
+        @Query("animalID") animalID: Int?,
         @Query("time") time: String?,
         @Query("mass") mass: String?
     ): Call<ResponseBody>
@@ -30,11 +30,11 @@ interface RationService {
     @POST("/mobileEditRation/update")
     fun editRation(
         @Query("token") token: String?,
-        @Query("userID") userID: String?,
-        @Query("feedID") feedID: String?,
-        @Query("animalID") animalID: String?,
+        @Query("userID") userID: Int?,
+        @Query("feedID") feedID: Int?,
+        @Query("animalID") animalID: Int?,
         @Query("time") time: String?,
         @Query("mass") mass: String?,
-        @Query("id") id: String?
+        @Query("id") id: Int?
     ): Call<ResponseBody>
 }

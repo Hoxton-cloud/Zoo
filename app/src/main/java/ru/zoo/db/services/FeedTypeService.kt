@@ -9,26 +9,26 @@ import retrofit2.http.Query
 interface FeedTypeService {
     @GET("/mobileGetFeedTypesList")
     fun getFeedTypesList(
-        @Query("token") token: String?, @Query("userID") userID: String?
+        @Query("token") token: String?, @Query("userID") userID: Int?
     ): Call<ResponseBody>
 
     @GET("/mobileGetFeedTypeByID")
     fun getFeedTypeByID(
-        @Query("token") token: String?, @Query("userID") userID: String?, @Query("feedTypeID") feedTypeID: String?
+        @Query("token") token: String?, @Query("userID") userID: Int?, @Query("feedTypeID") feedTypeID: Int?
     ): Call<ResponseBody>
 
     @POST("/mobileEditFeedType/add")
     fun addFeedType(
         @Query("token") token: String?,
-        @Query("userID") userID: String?,
+        @Query("userID") userID: Int?,
         @Query("title") title: String?
     ): Call<ResponseBody>
 
     @POST("/mobileEditFeedType/update")
     fun editFeedType(
         @Query("token") token: String?,
-        @Query("userID") userID: String?,
+        @Query("userID") userID: Int?,
         @Query("title") title: String?,
-        @Query("id") id: String?
+        @Query("id") id: Int?
     ): Call<ResponseBody>
 }

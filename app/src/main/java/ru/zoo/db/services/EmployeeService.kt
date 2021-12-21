@@ -14,12 +14,12 @@ interface EmployeeService {
 
     @GET("/mobileGetEmployeeByID")
     fun getEmployeeByID(
-        @Query("token") token: String?, @Query("userID") userID: String?, @Query("employeeID") employeeID: String?
+        @Query("token") token: String?, @Query("userID") userID: Int?, @Query("employeeID") employeeID: Int?
     ): Call<ResponseBody>
 
     @POST("/mobileEditEmployee/add")
     fun addEmployee(
-        @Query("positionID") positionID: String?,
+        @Query("positionID") positionID: Int?,
         @Query("firstName") firstName: String?,
         @Query("lastName") lastName: String?,
         @Query("patronymic") patronymic: String?,
@@ -29,12 +29,12 @@ interface EmployeeService {
     @POST("/mobileEditEmployee/update")
     fun editEmployee(
         @Query("token") token: String?,
-        @Query("userID") userID: String?,
-        @Query("positionID") positionID: String?,
+        @Query("userID") userID: Int?,
+        @Query("positionID") positionID: Int?,
         @Query("firstName") firstName: String?,
         @Query("lastName") lastName: String?,
         @Query("patronymic") patronymic: String?,
         @Query("phoneNumber") phoneNumber: String?,
-        @Query("id") id: String?
+        @Query("id") id: Int?
     ): Call<ResponseBody>
 }

@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Zoo</string>
+    <string name="app_name_ru">Зоопарк</string>
     <string name="connect_error">Не удалось подключиться к серверу</string>
     <string name="authorization">Авторизация</string>
+    <string name="rations">Рационы</string>
     <string name="login">Логин</string>
     <string name="password">Пароль</string>
     <string name="enter_password">Введите пароль</string>
@@ -17,6 +19,8 @@
     <string name="lorem">Lorem</string>
     <string name="users">Пользователи</string>>
     <string name="employees">Сотрудники</string>
+    <string name="feed_types">Типы кормов</string>
+    <string name="feeds">Корма</string>
     <string name="delete">Удалить</string>
 
 
@@ -24,7 +28,12 @@
     <string name="edit_user">Редактирование пользователя</string>
     <string name="new_employee">Новый сотрудник</string>
     <string name="edit_employee">Редактирование сотрудника</string>
-
+    <string name="new_ration">Новый сотрудник</string>
+    <string name="edit_ration">Редактирование сотрудника</string>
+    <string name="new_feed">Новый корм</string>
+    <string name="edit_feed">Редактирование корма</string>
+    <string name="new_feed_type">Новый тип корма</string>
+    <string name="edit_feed_type">Редактирование типа корма</string>
 
 
     <string name="id">Id</string>
@@ -44,6 +53,15 @@
     <string name="patronymic">Отчество</string>
     <string name="enter_patronymic">Введите отчество</string>
     <string name="position">Должность</string>
+    <string name="animal">Животное</string>
+    <string name="feed">Корм</string>
+    <string name="time">Время</string>
+    <string name="enter_time">Введите время</string>
+    <string name="mass">Масса</string>
+    <string name="enter_mass">Введите массу</string>
+    <string name="title">Наименование</string>
+    <string name="enter_title">Введите наименование</string>
+    <string name="feed_type">Тип корма</string>
 
     <string name="users_table">Таблица пользователей</string>
     <string name="employees_table">Таблица сотрудников</string>

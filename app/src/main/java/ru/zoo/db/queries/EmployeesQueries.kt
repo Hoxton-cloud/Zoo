@@ -70,7 +70,7 @@ class EmployeesQueries {
             getQueryClient(context).create(EmployeeService::class.java)
         val userId = Preferences.getInt(Preferences.USER_ID, 99999999)
         val token = Preferences.getString(Preferences.USER_TOKEN, "")
-        val call = employeeService.getEmployeeByID(token, userId.toString(), soughtEmployeeID.toString())
+        val call = employeeService.getEmployeeByID(token, userId, soughtEmployeeID)
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(
                 call: Call<ResponseBody>,
@@ -116,13 +116,13 @@ class EmployeesQueries {
         val token = Preferences.getString(Preferences.USER_TOKEN, "")
         val call = employeeService.editEmployee(
             token,
-            userId.toString(),
-            employee.positionID.toString(),
+            userId,
+            employee.positionID,
             employee.firstName,
             employee.lastName,
             employee.patronymic,
             employee.phoneNumber,
-            employee.id.toString())
+            employee.id)
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(
                 call: Call<ResponseBody>,
@@ -162,7 +162,7 @@ class EmployeesQueries {
         val userId = Preferences.getInt(Preferences.USER_ID, 999999)
         val token = Preferences.getString(Preferences.USER_TOKEN, "")
         val call = employeeService.addEmployee(
-            employee.positionID.toString(),
+            employee.positionID,
             employee.firstName,
             employee.lastName,
             employee.patronymic,

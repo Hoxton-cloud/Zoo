@@ -93,6 +93,7 @@ class UsersEditPresenter (
     }
 
     fun editPreset() {
+        containerID.visible()
         containerID.label.text = context.getString(R.string.id)
         containerID.imageViewArrow.gone()
         containerID.value.text = userForSend.id.toString()

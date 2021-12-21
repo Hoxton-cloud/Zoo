@@ -53,7 +53,7 @@ class EmployeesEditPresenter (
         db.addEmployee()
     }
 
-    fun getEmployee() {
+    fun getPosition() {
         db.getPosition()
     }
 
