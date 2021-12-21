@@ -135,16 +135,17 @@ class AnimalsEditActivity : AppCompatActivity(), ISetToolbar {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
-                REQUEST_CODE_DIRECTORY -> {
-                    if (SpeciesesRepository.checkedSpecies.isNotEmpty()) {
-                        animalForSend.speciesID = SpeciesesRepository.checkedSpecies[0].id
-                        presenter.getSpecies()
-                        presenter.setMode()
-                    }
-                }
+//                REQUEST_CODE_DIRECTORY -> {
+//                    if (SpeciesesRepository.checkedSpecies.isNotEmpty()) {
+//                        animalForSend.speciesID = SpeciesesRepository.checkedSpecies[0].id
+//                        presenter.getSpecies()
+//                        presenter.setMode()
+//                    }
+
             }
         }
     }
+
     companion object {
         fun startForResultCreate(
             activity: Activity,
