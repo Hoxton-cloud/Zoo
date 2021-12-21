@@ -36,6 +36,8 @@
     <string name="edit_feed_type">Редактирование типа корма</string>
     <string name="new_animal">Новое животное</string>
     <string name="edit_animal">Редактирование животного</string>
+    <string name="new_species">Новый вид</string>
+    <string name="edit_species">Редактирование вида</string>
 
 
     <string name="id">Id</string>
@@ -44,11 +46,13 @@
     <string name="name">Имя</string>
     <string name="enter_name">Введите имя</string>
     <string name="sex">Пол</string>
+    <string name="climateZone">Климатическая зона</string>
     <string name="animals">Животные</string>
     <string name="species">Вид</string>
     <string name="enter_sex">Введите пол</string>
     <string name="assigned_employee">Закрепленный сотруднник</string>
     <string name="role">Роль</string>
+    <string name="specieses">Виды</string>
     <string name="enter_role">Введите роль</string>
     <string name="section_is_under_construction">Раздел находится в разработке</string>
 

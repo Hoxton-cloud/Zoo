@@ -8,8 +8,8 @@ import retrofit2.http.Query
 
 interface SpeciesService {
     @GET("/mobileGetSpeciesList")
-    fun getSpeciesList(
-        @Query("token") token: String?, @Query("userID") userID: String?
+    fun getSpeciesesList(
+        @Query("token") token: String?, @Query("userID") userID: Int?
     ): Call<ResponseBody>
 
     @GET("/mobileGetSpeciesByID")
@@ -33,6 +33,6 @@ interface SpeciesService {
         @Query("title") title: String?,
         @Query("climateZoneID") climateZoneID: Int?,
         @Query("typeID") typeID: Int?,
-        @Query("id") id: String?
+        @Query("id") id: Int?
     ): Call<ResponseBody>
 }

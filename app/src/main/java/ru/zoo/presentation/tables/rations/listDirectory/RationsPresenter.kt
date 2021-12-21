@@ -48,7 +48,7 @@ class RationsPresenter (
     fun search(s: String) {
         redRations.clear()
         rations.forEach {
-            if (it.time .toLowerCase(Locale.getDefault()).contains(s)) {
+            if (it.time.toLowerCase(Locale.getDefault()).contains(s)) {
                 redRations.add(it)
             }
         }
