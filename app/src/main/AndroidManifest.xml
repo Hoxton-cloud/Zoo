@@ -23,50 +23,76 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
-        <activity android:name=".presentation.tables.feedTypes.listDirectory.FeedTypesActivity" android:exported="true"
+        <activity android:name=".presentation.tables.specieses.listDirectory.SpeciesesActivity"></activity>
+        <activity android:name=".presentation.tables.specieses.createEdit.SpeciesesEditActivity" />
+        <activity android:name=".presentation.tables.animals.listDirectory.AnimalsActivity" />
+        <activity android:name=".presentation.tables.animals.createEdit.AnimalsEditActivity" />
+        <activity
+            android:name=".presentation.tables.feedTypes.listDirectory.FeedTypesActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".presentation.tables.feedTypes.createEdit.FeedTypesEditActivity" android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".presentation.tables.feedTypes.createEdit.FeedTypesEditActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".presentation.tables.feeds.listDirectory.FeedsActivity" android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".presentation.tables.feeds.listDirectory.FeedsActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".presentation.tables.feeds.createEdit.FeedsEditActivity" android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".presentation.tables.feeds.createEdit.FeedsEditActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".presentation.tables.rations.listDirectory.RationsActivity" android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".presentation.tables.rations.listDirectory.RationsActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".presentation.tables.rations.createEdit.RationsEditActivity" android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".presentation.tables.rations.createEdit.RationsEditActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".presentation.tables.employees.createEdit.EmployeesEditActivity" android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".presentation.tables.employees.createEdit.EmployeesEditActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".presentation.tables.employees.listDirectory.EmployeesActivity" android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".presentation.tables.employees.listDirectory.EmployeesActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".presentation.tables.users.createEdit.UsersEditActivity" android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".presentation.tables.users.createEdit.UsersEditActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".presentation.tables.users.listDirectory.UsersActivity" android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".presentation.tables.users.listDirectory.UsersActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
-            tools:ignore="LockedOrientationActivity"/>
-        <activity android:name=".presentation.menu.MenuActivity" android:exported="true"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".presentation.menu.MenuActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
-            tools:ignore="LockedOrientationActivity"/>
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".presentation.authorization.AuthorizationActivity"
             android:exported="true"

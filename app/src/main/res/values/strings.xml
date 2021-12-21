@@ -34,11 +34,19 @@
     <string name="edit_feed">Редактирование корма</string>
     <string name="new_feed_type">Новый тип корма</string>
     <string name="edit_feed_type">Редактирование типа корма</string>
+    <string name="new_animal">Новое животное</string>
+    <string name="edit_animal">Редактирование животного</string>
 
 
     <string name="id">Id</string>
     <string name="username">Имя пользователя</string>
     <string name="enter_username">Введите имя пользователя</string>
+    <string name="name">Имя</string>
+    <string name="enter_name">Введите имя</string>
+    <string name="sex">Пол</string>
+    <string name="animals">Животные</string>
+    <string name="species">Вид</string>
+    <string name="enter_sex">Введите пол</string>
     <string name="assigned_employee">Закрепленный сотруднник</string>
     <string name="role">Роль</string>
     <string name="enter_role">Введите роль</string>

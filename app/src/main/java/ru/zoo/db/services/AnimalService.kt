@@ -9,30 +9,30 @@ import retrofit2.http.Query
 interface AnimalService {
     @GET("/mobileGetAnimalsList")
     fun getAnimalsList(
-        @Query("token") token: String?, @Query("userID") userID: String?
+        @Query("token") token: String?, @Query("userID") userID: Int?
     ): Call<ResponseBody>
 
     @GET("/mobileGetAnimalByID")
     fun getAnimalByID(
-        @Query("token") token: String?, @Query("userID") userID: String?, @Query("animalID") animalID: String?
+        @Query("token") token: String?, @Query("userID") userID: Int?, @Query("animalID") animalID: Int?
     ): Call<ResponseBody>
 
     @POST("/mobileEditAnimal/add")
     fun addAnimal(
         @Query("token") token: String?,
-        @Query("userID") userID: String?,
+        @Query("userID") userID: Int?,
         @Query("name") name: String?,
         @Query("sex") sex: String?,
-        @Query("speciesID") speciesID: String?
+        @Query("speciesID") speciesID: Int?
     ): Call<ResponseBody>
 
     @POST("/mobileEditAnimals/update")
     fun editAnimal(
         @Query("token") token: String?,
-        @Query("userID") userID: String?,
+        @Query("userID") userID: Int?,
         @Query("name") name: String?,
         @Query("sex") sex: String?,
-        @Query("speciesID") speciesID: String?,
-        @Query("id") id: String?
+        @Query("speciesID") speciesID: Int?,
+        @Query("id") id: Int?
     ): Call<ResponseBody>
 }
